@@ -1,0 +1,93 @@
+/* This file is for your main application css. */
+* {
+    font-family: "Lucida Console", Monaco, monospace;
+    color: #333;
+}
+
+.mr-main {
+    height: 90vh;
+    justify-content: center;
+}
+
+header {
+    height: 10vh;
+    margin-bottom: 10vh;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flex-row {
+    display: flex;
+    justify-content: center;
+}
+
+.dialog-large {
+    width: 50vmin;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    border: darkslategray solid 2px;
+    padding: 2vmin;
+    margin: 2vmin;
+    background-color: white;
+}
+
+.dialog-large>* {
+    margin: 2vmin;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-start {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.input {
+    height: 30px;
+    border-radius: 0;
+}
+
+.input-text {
+    border: none;
+    border-bottom: black solid 1px;
+}
+
+button.input {
+    border: black solid 1px;
+    background-color: lightgrey;
+    border-radius: 2px;
+}
+
+.title {
+    font-size: 3em;
+}
+
+.feedback {
+    display: flex;
+    justify-content: center;
+    width: 50vmin;
+    max-width: 300px;
+    padding: 2vmin;
+    margin: 2vmin;
+}
+
+.error {
+    background-color: tomato;
+}
+
+
+
+/*# sourceMappingURL=app.css.map*/
