@@ -2678,7 +2678,6 @@ var _elm_lang$core$Native_Array = function () {
 		fromJSArray: fromJSArray
 	};
 }();
-
 });
 
 require.register("elm/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Basics.js", function(exports, require, module) {
@@ -2803,7 +2802,6 @@ var _elm_lang$core$Native_Basics = function () {
 		isInfinite: isInfinite
 	};
 }();
-
 });
 
 require.register("elm/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Bitwise.js", function(exports, require, module) {
@@ -2835,7 +2833,6 @@ var _elm_lang$core$Native_Bitwise = function () {
 		})
 	};
 }();
-
 });
 
 require.register("elm/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Char.js", function(exports, require, module) {
@@ -2866,7 +2863,6 @@ var _elm_lang$core$Native_Char = function () {
 		}
 	};
 }();
-
 });
 
 require.register("elm/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Date.js", function(exports, require, module) {
@@ -2918,7 +2914,6 @@ var _elm_lang$core$Native_Date = function () {
 		}
 	};
 }();
-
 });
 
 require.register("elm/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Debug.js", function(exports, require, module) {
@@ -2948,7 +2943,6 @@ var _elm_lang$core$Native_Debug = function () {
 		log: F2(log)
 	};
 }();
-
 });
 
 require.register("elm/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Json.js", function(exports, require, module) {
@@ -3433,7 +3427,6 @@ var _elm_lang$core$Native_Json = function () {
 		equality: equality
 	};
 }();
-
 });
 
 require.register("elm/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/List.js", function(exports, require, module) {
@@ -3551,7 +3544,6 @@ var _elm_lang$core$Native_List = function () {
 		sortWith: F2(sortWith)
 	};
 }();
-
 });
 
 require.register("elm/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Platform.js", function(exports, require, module) {
@@ -4016,7 +4008,6 @@ var _elm_lang$core$Native_Platform = function () {
 		map: F2(map)
 	};
 }();
-
 });
 
 require.register("elm/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Regex.js", function(exports, require, module) {
@@ -4122,7 +4113,6 @@ var _elm_lang$core$Native_Regex = function () {
 		split: F3(split)
 	};
 }();
-
 });
 
 require.register("elm/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Scheduler.js", function(exports, require, module) {
@@ -4372,7 +4362,6 @@ var _elm_lang$core$Native_Scheduler = function () {
 		rawSend: rawSend
 	};
 }();
-
 });
 
 require.register("elm/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/String.js", function(exports, require, module) {
@@ -4651,7 +4640,6 @@ var _elm_lang$core$Native_String = function () {
 		fromList: fromList
 	};
 }();
-
 });
 
 require.register("elm/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Time.js", function(exports, require, module) {
@@ -4682,7 +4670,6 @@ var _elm_lang$core$Native_Time = function () {
 		setInterval_: F2(setInterval_)
 	};
 }();
-
 });
 
 require.register("elm/elm-stuff/packages/elm-lang/core/5.1.1/src/Native/Utils.js", function(exports, require, module) {
@@ -5085,7 +5072,6 @@ var _elm_lang$core$Native_Utils = function () {
 		toString: toString
 	};
 }();
-
 });
 
 require.register("elm/elm-stuff/packages/elm-lang/core/5.1.1/src/Platform.elm", function(exports, require, module) {
@@ -5432,7 +5418,6 @@ var _elm_lang$http$Native_Http = function () {
 		decodeUri: decodeUri
 	};
 }();
-
 });
 
 require.register("elm/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/src/Native/Debug.js", function(exports, require, module) {
@@ -5667,7 +5652,6 @@ var _elm_lang$virtual_dom$Native_Debug = function () {
 		init: init
 	};
 }();
-
 });
 
 require.register("elm/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/src/Native/VirtualDom.js", function(exports, require, module) {
@@ -7196,7 +7180,6 @@ var _elm_lang$virtual_dom$Native_VirtualDom = function () {
 		staticProgram: staticProgram
 	};
 }();
-
 });
 
 require.register("elm/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/src/VirtualDom.elm", function(exports, require, module) {
@@ -7267,7 +7250,6 @@ Elm.Native.TestHelpers.make = function (localRuntime) {
 	};
 	return localRuntime.Native.TestHelpers.values = Elm.Native.TestHelpers.values;
 };
-
 });
 
 require.register("elm/elm-stuff/packages/elm-lang/virtual-dom/2.0.4/tests/TestCases/Lazy.elm", function(exports, require, module) {
@@ -7363,7 +7345,6 @@ var _elm_lang$websocket$Native_WebSocket = function () {
 		bytesQueued: bytesQueued
 	};
 }();
-
 });
 
 require.register("elm/elm-stuff/packages/elm-lang/websocket/1.0.2/src/WebSocket.elm", function(exports, require, module) {
@@ -7446,7 +7427,6 @@ exports.config = {
     whitelist: ["phoenix", "phoenix_html"]
   }
 };
-
 });
 
 require.register("elm/elm-stuff/packages/saschatimme/elm-phoenix/0.3.2/example/assets/elm/src/Chat.elm", function(exports, require, module) {
@@ -7480,7 +7460,6 @@ var elmApp = Elm.Chat.embed(elmDiv);
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
-
 });
 
 ;require.register("elm/elm-stuff/packages/saschatimme/elm-phoenix/0.3.2/src/Phoenix.elm", function(exports, require, module) {
@@ -7554,7 +7533,6 @@ var elmDiv = document.getElementById('elm-main'),
 //
 // If you no longer want to use a dependency, remember
 // to also remove its path from "config.paths.watched".
-
 });
 
 ;require.register("js/socket.js", function(exports, require, module) {
@@ -7628,10 +7606,9 @@ channel.join().receive("ok", function (resp) {
 });
 
 exports.default = socket;
-
 });
 
-require.alias("phoenix/priv/static/phoenix.js", "phoenix");
+;require.alias("phoenix/priv/static/phoenix.js", "phoenix");
 require.alias("phoenix_html/priv/static/phoenix_html.js", "phoenix_html");
 require.alias("process/browser.js", "process");process = require('process');require.register("___globals___", function(exports, require, module) {
   
