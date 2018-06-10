@@ -6,11 +6,11 @@
 use Mix.Config
 
 # Configures the endpoint
-config :magirator_app_gui, MagiratorElmWeb.Endpoint,
+config :magirator_app_gui, MagiratorAppGuiWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "23c+ICZlSkNMJDiabdVfDSzOprkIN36fGrqlRywqmrVAErFyu4R4gB3wDOHjMo8X",
-  render_errors: [view: MagiratorElmWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: MagiratorElm.PubSub,
+  render_errors: [view: MagiratorAppGuiWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: MagiratorAppGui.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger

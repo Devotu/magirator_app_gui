@@ -1,3 +1,3 @@
-defmodule MagiratorElmWeb.LayoutViewTest do
-  use MagiratorElmWeb.ConnCase, async: true
+defmodule MagiratorAppGuiWeb.LayoutViewTest do
+  use MagiratorAppGuiWeb.ConnCase, async: true
 end

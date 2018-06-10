@@ -1,5 +1,5 @@
-defmodule MagiratorElmWeb.ErrorView do
-  use MagiratorElmWeb, :view
+defmodule MagiratorAppGuiWeb.ErrorView do
+  use MagiratorAppGuiWeb, :view
 
   def render("404.html", _assigns) do
     "Page not found"

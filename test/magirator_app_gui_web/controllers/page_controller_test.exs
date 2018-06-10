@@ -1,5 +1,5 @@
-defmodule MagiratorElmWeb.PageControllerTest do
-  use MagiratorElmWeb.ConnCase
+defmodule MagiratorAppGuiWeb.PageControllerTest do
+  use MagiratorAppGuiWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"

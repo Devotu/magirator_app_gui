@@ -1,3 +1,3 @@
-defmodule MagiratorElmWeb.LayoutView do
-  use MagiratorElmWeb, :view
+defmodule MagiratorAppGuiWeb.LayoutView do
+  use MagiratorAppGuiWeb, :view
 end

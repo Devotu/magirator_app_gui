@@ -1,12 +1,12 @@
-defmodule MagiratorElmWeb do
+defmodule MagiratorAppGuiWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use MagiratorElmWeb, :controller
-      use MagiratorElmWeb, :view
+      use MagiratorAppGuiWeb, :controller
+      use MagiratorAppGuiWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,17 +19,17 @@ defmodule MagiratorElmWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: MagiratorElmWeb
+      use Phoenix.Controller, namespace: MagiratorAppGuiWeb
       import Plug.Conn
-      import MagiratorElmWeb.Router.Helpers
-      import MagiratorElmWeb.Gettext
+      import MagiratorAppGuiWeb.Router.Helpers
+      import MagiratorAppGuiWeb.Gettext
     end
   end
 
   def view do
     quote do
       use Phoenix.View, root: "lib/magirator_app_gui_web/templates",
-                        namespace: MagiratorElmWeb
+                        namespace: MagiratorAppGuiWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 2, view_module: 1]
@@ -37,9 +37,9 @@ defmodule MagiratorElmWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import MagiratorElmWeb.Router.Helpers
-      import MagiratorElmWeb.ErrorHelpers
-      import MagiratorElmWeb.Gettext
+      import MagiratorAppGuiWeb.Router.Helpers
+      import MagiratorAppGuiWeb.ErrorHelpers
+      import MagiratorAppGuiWeb.Gettext
     end
   end
 
@@ -54,7 +54,7 @@ defmodule MagiratorElmWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import MagiratorElmWeb.Gettext
+      import MagiratorAppGuiWeb.Gettext
     end
   end
 

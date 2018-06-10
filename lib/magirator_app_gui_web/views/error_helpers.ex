@@ -1,4 +1,4 @@
-defmodule MagiratorElmWeb.ErrorHelpers do
+defmodule MagiratorAppGuiWeb.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -32,9 +32,9 @@ defmodule MagiratorElmWeb.ErrorHelpers do
     #     dgettext "errors", "is invalid"
     #
     if count = opts[:count] do
-      Gettext.dngettext(MagiratorElmWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(MagiratorAppGuiWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(MagiratorElmWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(MagiratorAppGuiWeb.Gettext, "errors", msg, opts)
     end
   end
 end

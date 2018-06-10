@@ -1,5 +1,5 @@
-defmodule MagiratorElmWeb.Router do
-  use MagiratorElmWeb, :router
+defmodule MagiratorAppGuiWeb.Router do
+  use MagiratorAppGuiWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,14 +13,14 @@ defmodule MagiratorElmWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", MagiratorElmWeb do
+  scope "/", MagiratorAppGuiWeb do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", MagiratorElmWeb do
+  # scope "/api", MagiratorAppGuiWeb do
   #   pipe_through :api
   # end
 end

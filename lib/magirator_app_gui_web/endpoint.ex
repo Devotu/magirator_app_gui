@@ -1,7 +1,7 @@
-defmodule MagiratorElmWeb.Endpoint do
+defmodule MagiratorAppGuiWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :magirator_app_gui
 
-  socket "/socket", MagiratorElmWeb.UserSocket
+  socket "/socket", MagiratorAppGuiWeb.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -38,7 +38,7 @@ defmodule MagiratorElmWeb.Endpoint do
     key: "_magirator_app_gui_key",
     signing_salt: "XX2iCQLC"
 
-  plug MagiratorElmWeb.Router
+  plug MagiratorAppGuiWeb.Router
 
   @doc """
   Callback invoked for dynamically configuring the endpoint.
