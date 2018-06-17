@@ -11673,10 +11673,11 @@ var _saschatimme$elm_phoenix$Phoenix$onSelfMsg = F3(
 	});
 _elm_lang$core$Native_Platform.effectManagers['Phoenix'] = {pkg: 'saschatimme/elm-phoenix', init: _saschatimme$elm_phoenix$Phoenix$init, onEffects: _saschatimme$elm_phoenix$Phoenix$onEffects, onSelfMsg: _saschatimme$elm_phoenix$Phoenix$onSelfMsg, tag: 'fx', cmdMap: _saschatimme$elm_phoenix$Phoenix$cmdMap, subMap: _saschatimme$elm_phoenix$Phoenix$subMap};
 
-var _user$project$Main$subscriptions = function (model) {
-	return _elm_lang$core$Platform_Sub$none;
+var _user$project$Msgs$UrlChange = function (a) {
+	return {ctor: 'UrlChange', _0: a};
 };
-var _user$project$Main$notFoundPage = A2(
+
+var _user$project$Error$notFoundPage = A2(
 	_elm_lang$html$Html$h1,
 	{ctor: '[]'},
 	{
@@ -11684,15 +11685,8 @@ var _user$project$Main$notFoundPage = A2(
 		_0: _elm_lang$html$Html$text('Page not found'),
 		_1: {ctor: '[]'}
 	});
-var _user$project$Main$loginPage = A2(
-	_elm_lang$html$Html$h1,
-	{ctor: '[]'},
-	{
-		ctor: '::',
-		_0: _elm_lang$html$Html$text('Login'),
-		_1: {ctor: '[]'}
-	});
-var _user$project$Main$homePage = A2(
+
+var _user$project$Home$homePage = A2(
 	_elm_lang$html$Html$h1,
 	{ctor: '[]'},
 	{
@@ -11700,6 +11694,19 @@ var _user$project$Main$homePage = A2(
 		_0: _elm_lang$html$Html$text('Home'),
 		_1: {ctor: '[]'}
 	});
+
+var _user$project$Login$loginPage = A2(
+	_elm_lang$html$Html$h1,
+	{ctor: '[]'},
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html$text('Login'),
+		_1: {ctor: '[]'}
+	});
+
+var _user$project$Main$subscriptions = function (model) {
+	return _elm_lang$core$Platform_Sub$none;
+};
 var _user$project$Main$update = F2(
 	function (msg, model) {
 		var _p0 = msg;
@@ -11755,13 +11762,13 @@ var _user$project$Main$pageBody = function (model) {
 	var _p2 = routePath;
 	switch (_p2.ctor) {
 		case 'DefaultRoute':
-			return _user$project$Main$homePage;
+			return _user$project$Home$homePage;
 		case 'HomeRoute':
-			return _user$project$Main$homePage;
+			return _user$project$Home$homePage;
 		case 'LoginRoute':
-			return _user$project$Main$loginPage;
+			return _user$project$Login$loginPage;
 		default:
-			return _user$project$Main$notFoundPage;
+			return _user$project$Error$notFoundPage;
 	}
 };
 var _user$project$Main$view = function (model) {
@@ -11783,12 +11790,9 @@ var _user$project$Main$view = function (model) {
 			_1: {ctor: '[]'}
 		});
 };
-var _user$project$Main$UrlChange = function (a) {
-	return {ctor: 'UrlChange', _0: a};
-};
 var _user$project$Main$main = A2(
 	_elm_lang$navigation$Navigation$program,
-	_user$project$Main$UrlChange,
+	_user$project$Msgs$UrlChange,
 	{init: _user$project$Main$init, view: _user$project$Main$view, update: _user$project$Main$update, subscriptions: _user$project$Main$subscriptions})();
 
 var Elm = {};

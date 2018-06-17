@@ -11,9 +11,14 @@ import Navigation
 import String
 import List exposing (..)
 
-main : Program Never Model Msg
+import Home exposing (homePage)
+import Login exposing (loginPage)
+import Error exposing (notFoundPage)
+import Msgs exposing (Msg)
+
+main : Program Never Model Msgs.Msg
 main =
-    Navigation.program UrlChange
+    Navigation.program Msgs.UrlChange
         { init = init
         , view = view
         , update = update
@@ -67,8 +72,7 @@ init location =
 --   , status = "Not initiated"
 --   }
 
-type Msg
-    = UrlChange Navigation.Location
+
 
 -- type Msg
 --   =  NewMsg JDC.Value | Password String | SendMsg | Username String
@@ -92,7 +96,7 @@ type Msg
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        UrlChange location ->
+        Msgs.UrlChange location ->
           { model | currentRoute = location } ! []
 
 -- update : Msg -> Model -> ( Model, Cmd Msg )
@@ -199,17 +203,17 @@ view model =
 --     ]
 --   else div [][]
 
-homePage : Html Msg
-homePage =
-    h1 [] [ text "Home" ]
+-- homePage : Html Msg
+-- homePage =
+--     h1 [] [ text "Home" ]
 
-loginPage : Html Msg
-loginPage =
-    h1 [] [ text "Login" ]
+-- loginPage : Html Msg
+-- loginPage =
+--     h1 [] [ text "Login" ]
 
-notFoundPage : Html Msg
-notFoundPage =
-    h1 [] [ text "Page not found" ]
+-- notFoundPage : Html Msg
+-- notFoundPage =
+--     h1 [] [ text "Page not found" ]
 
 
 -- Subscriptions
