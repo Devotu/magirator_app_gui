@@ -7782,7 +7782,23 @@ var elmApp = Elm.Chat.embed(elmDiv);
 
 });
 
+;require.register("elm/models/Model.elm", function(exports, require, module) {
+
+});
+
+;require.register("elm/subscriptions/Subscription.elm", function(exports, require, module) {
+
+});
+
 ;require.register("elm/update/Ms.elm", function(exports, require, module) {
+
+});
+
+;require.register("elm/update/Update.elm", function(exports, require, module) {
+
+});
+
+;require.register("elm/view/View.elm", function(exports, require, module) {
 
 });
 
@@ -31335,127 +31351,312 @@ var _saschatimme$elm_phoenix$Phoenix$onSelfMsg = F3(
 	});
 _elm_lang$core$Native_Platform.effectManagers['Phoenix'] = {pkg: 'saschatimme/elm-phoenix', init: _saschatimme$elm_phoenix$Phoenix$init, onEffects: _saschatimme$elm_phoenix$Phoenix$onEffects, onSelfMsg: _saschatimme$elm_phoenix$Phoenix$onSelfMsg, tag: 'fx', cmdMap: _saschatimme$elm_phoenix$Phoenix$cmdMap, subMap: _saschatimme$elm_phoenix$Phoenix$subMap};
 
+var _user$project$Ms$Username = function (a) {
+	return {ctor: 'Username', _0: a};
+};
+var _user$project$Ms$SendMsg = {ctor: 'SendMsg'};
+var _user$project$Ms$Password = function (a) {
+	return {ctor: 'Password', _0: a};
+};
+var _user$project$Ms$NewMsg = function (a) {
+	return {ctor: 'NewMsg', _0: a};
+};
 var _user$project$Ms$UrlChange = function (a) {
 	return {ctor: 'UrlChange', _0: a};
 };
 
-var _user$project$Error$notFoundPage = A2(
-	_elm_lang$html$Html$h1,
-	{ctor: '[]'},
-	{
-		ctor: '::',
-		_0: _elm_lang$html$Html$text('Page not found'),
-		_1: {ctor: '[]'}
+var _user$project$Model$Model = F4(
+	function (a, b, c, d) {
+		return {currentRoute: a, username: b, password: c, status: d};
 	});
 
-var _user$project$Home$homePage = A2(
-	_elm_lang$html$Html$h1,
-	{ctor: '[]'},
-	{
-		ctor: '::',
-		_0: _elm_lang$html$Html$text('Home'),
-		_1: {ctor: '[]'}
-	});
-
-var _user$project$Login$loginPage = A2(
-	_elm_lang$html$Html$h1,
-	{ctor: '[]'},
-	{
-		ctor: '::',
-		_0: _elm_lang$html$Html$text('Logintz'),
-		_1: {ctor: '[]'}
-	});
-
-var _user$project$Main$subscriptions = function (model) {
-	return _elm_lang$core$Platform_Sub$none;
+var _user$project$Error$notFoundPage = function (model) {
+	return A2(
+		_elm_lang$html$Html$h1,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text('Page not found'),
+			_1: {ctor: '[]'}
+		});
 };
-var _user$project$Main$update = F2(
-	function (msg, model) {
-		var _p0 = msg;
-		return A2(
-			_elm_lang$core$Platform_Cmd_ops['!'],
-			_elm_lang$core$Native_Utils.update(
-				model,
-				{currentRoute: _p0._0}),
+
+var _user$project$Home$homePage = function (model) {
+	return A2(
+		_elm_lang$html$Html$h1,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text('Home'),
+			_1: {ctor: '[]'}
+		});
+};
+
+var _user$project$Login$viewEmpty = F2(
+	function (parameterName, parameter) {
+		return _elm_lang$core$Native_Utils.eq(parameter, '') ? A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class('feedback error'),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text(
+					A2(_elm_lang$core$Basics_ops['++'], parameterName, ' empty')),
+				_1: {ctor: '[]'}
+			}) : A2(
+			_elm_lang$html$Html$div,
+			{ctor: '[]'},
 			{ctor: '[]'});
 	});
-var _user$project$Main$init = function (location) {
-	return A2(
-		_elm_lang$core$Platform_Cmd_ops['!'],
-		{currentRoute: location},
-		{ctor: '[]'});
-};
-var _user$project$Main$Model = function (a) {
-	return {currentRoute: a};
-};
-var _user$project$Main$NotFoundRoute = {ctor: 'NotFoundRoute'};
-var _user$project$Main$LoginRoute = {ctor: 'LoginRoute'};
-var _user$project$Main$HomeRoute = {ctor: 'HomeRoute'};
-var _user$project$Main$DefaultRoute = {ctor: 'DefaultRoute'};
-var _user$project$Main$fromUrlHash = function (urlHash) {
-	var hashList = A2(
-		_elm_lang$core$List$drop,
-		1,
-		A2(_elm_lang$core$String$split, '/', urlHash));
-	var _p1 = hashList;
-	_v1_3:
-	do {
-		if (_p1.ctor === '[]') {
-			return _user$project$Main$DefaultRoute;
-		} else {
-			if (_p1._1.ctor === '[]') {
-				switch (_p1._0) {
-					case 'home':
-						return _user$project$Main$HomeRoute;
-					case 'login':
-						return _user$project$Main$LoginRoute;
-					default:
-						break _v1_3;
-				}
-			} else {
-				break _v1_3;
-			}
-		}
-	} while(false);
-	return _user$project$Main$NotFoundRoute;
-};
-var _user$project$Main$pageBody = function (model) {
-	var routePath = _user$project$Main$fromUrlHash(model.currentRoute.hash);
-	var _p2 = routePath;
-	switch (_p2.ctor) {
-		case 'DefaultRoute':
-			return _user$project$Home$homePage;
-		case 'HomeRoute':
-			return _user$project$Home$homePage;
-		case 'LoginRoute':
-			return _user$project$Login$loginPage;
-		default:
-			return _user$project$Error$notFoundPage;
-	}
-};
-var _user$project$Main$view = function (model) {
+var _user$project$Login$loginPage = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$style(
-				{
-					ctor: '::',
-					_0: {ctor: '_Tuple2', _0: 'margin', _1: '20px'},
-					_1: {ctor: '[]'}
-				}),
+			_0: _elm_lang$html$Html_Attributes$class('mr-main flex-column flex-start'),
 			_1: {ctor: '[]'}
 		},
 		{
 			ctor: '::',
-			_0: _user$project$Main$pageBody(model),
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('dialog-large'),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$div,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$class('flex-end'),
+							_1: {ctor: '[]'}
+						},
+						{
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$button,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$class('input'),
+									_1: {ctor: '[]'}
+								},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('Sign up'),
+									_1: {ctor: '[]'}
+								}),
+							_1: {ctor: '[]'}
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$input,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('input input-text'),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$placeholder('username'),
+									_1: {
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$type_('text'),
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html_Events$onInput(_user$project$Ms$Username),
+											_1: {ctor: '[]'}
+										}
+									}
+								}
+							},
+							{ctor: '[]'}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$input,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$class('input input-text'),
+									_1: {
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$placeholder('password'),
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$type_('text'),
+											_1: {
+												ctor: '::',
+												_0: _elm_lang$html$Html_Events$onInput(_user$project$Ms$Password),
+												_1: {ctor: '[]'}
+											}
+										}
+									}
+								},
+								{ctor: '[]'}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$button,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$class('input'),
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html_Events$onClick(_user$project$Ms$SendMsg),
+											_1: {ctor: '[]'}
+										}
+									},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('Sign in'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$div,
+										{ctor: '[]'},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html$text(model.status),
+											_1: {ctor: '[]'}
+										}),
+									_1: {ctor: '[]'}
+								}
+							}
+						}
+					}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(_user$project$Login$viewEmpty, 'Username', model.username),
+				_1: {
+					ctor: '::',
+					_0: A2(_user$project$Login$viewEmpty, 'Password', model.password),
+					_1: {ctor: '[]'}
+				}
+			}
+		});
+};
+
+var _user$project$Subscription$subscriptions = function (model) {
+	return _elm_lang$core$Platform_Sub$none;
+};
+
+var _user$project$Update$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		switch (_p0.ctor) {
+			case 'UrlChange':
+				return A2(
+					_elm_lang$core$Platform_Cmd_ops['!'],
+					_elm_lang$core$Native_Utils.update(
+						model,
+						{currentRoute: _p0._0}),
+					{ctor: '[]'});
+			case 'NewMsg':
+				return A2(
+					_elm_lang$core$Platform_Cmd_ops['!'],
+					_elm_lang$core$Native_Utils.update(
+						model,
+						{
+							status: _elm_lang$core$Basics$toString(_p0._0)
+						}),
+					{ctor: '[]'});
+			case 'Password':
+				return A2(
+					_elm_lang$core$Platform_Cmd_ops['!'],
+					_elm_lang$core$Native_Utils.update(
+						model,
+						{password: _p0._0}),
+					{ctor: '[]'});
+			case 'Username':
+				return A2(
+					_elm_lang$core$Platform_Cmd_ops['!'],
+					_elm_lang$core$Native_Utils.update(
+						model,
+						{username: _p0._0}),
+					{ctor: '[]'});
+			default:
+				return A2(
+					_elm_lang$core$Platform_Cmd_ops['!'],
+					_elm_lang$core$Native_Utils.update(
+						model,
+						{status: 'sending'}),
+					{ctor: '[]'});
+		}
+	});
+
+var _user$project$View$NotFoundRoute = {ctor: 'NotFoundRoute'};
+var _user$project$View$LoginRoute = {ctor: 'LoginRoute'};
+var _user$project$View$HomeRoute = {ctor: 'HomeRoute'};
+var _user$project$View$DefaultRoute = {ctor: 'DefaultRoute'};
+var _user$project$View$fromUrlHash = function (urlHash) {
+	var hashList = A2(
+		_elm_lang$core$List$drop,
+		1,
+		A2(_elm_lang$core$String$split, '/', urlHash));
+	var _p0 = hashList;
+	_v0_3:
+	do {
+		if (_p0.ctor === '[]') {
+			return _user$project$View$DefaultRoute;
+		} else {
+			if (_p0._1.ctor === '[]') {
+				switch (_p0._0) {
+					case 'home':
+						return _user$project$View$HomeRoute;
+					case 'login':
+						return _user$project$View$LoginRoute;
+					default:
+						break _v0_3;
+				}
+			} else {
+				break _v0_3;
+			}
+		}
+	} while(false);
+	return _user$project$View$NotFoundRoute;
+};
+var _user$project$View$pageBody = function (model) {
+	var routePath = _user$project$View$fromUrlHash(model.currentRoute.hash);
+	var _p1 = routePath;
+	switch (_p1.ctor) {
+		case 'DefaultRoute':
+			return _user$project$Home$homePage(model);
+		case 'HomeRoute':
+			return _user$project$Home$homePage(model);
+		case 'LoginRoute':
+			return _user$project$Login$loginPage(model);
+		default:
+			return _user$project$Error$notFoundPage(model);
+	}
+};
+var _user$project$View$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _user$project$View$pageBody(model),
 			_1: {ctor: '[]'}
 		});
+};
+
+var _user$project$Main$init = function (location) {
+	return A2(
+		_elm_lang$core$Platform_Cmd_ops['!'],
+		{currentRoute: location, username: 'xxx', password: 'yyy', status: 'Not initiated'},
+		{ctor: '[]'});
 };
 var _user$project$Main$main = A2(
 	_elm_lang$navigation$Navigation$program,
 	_user$project$Ms$UrlChange,
-	{init: _user$project$Main$init, view: _user$project$Main$view, update: _user$project$Main$update, subscriptions: _user$project$Main$subscriptions})();
+	{init: _user$project$Main$init, update: _user$project$Update$update, subscriptions: _user$project$Subscription$subscriptions, view: _user$project$View$view})();
 
 var Elm = {};
 Elm['Main'] = Elm['Main'] || {};

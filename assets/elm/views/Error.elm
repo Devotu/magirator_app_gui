@@ -2,7 +2,8 @@ module Error exposing (..)
 
 import Html exposing (..)
 import Ms exposing (..)
+import Model exposing (Model)
 
-notFoundPage : Html Ms.Msg
-notFoundPage =
+notFoundPage : Model -> Html Ms.Msg
+notFoundPage model =
     h1 [] [ text "Page not found" ]
