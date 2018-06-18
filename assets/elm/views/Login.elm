@@ -1,8 +1,8 @@
 module Login exposing (..)
 
 import Html exposing (..)
-import Msgs exposing (Msg)
+import Ms exposing (..)
 
-loginPage : Html Msg
+loginPage : Html Ms.Msg
 loginPage =
-    h1 [] [ text "Login" ]
+    h1 [] [ text "Logintz" ]

@@ -1,8 +1,8 @@
 module Home exposing (..)
 
 import Html exposing (..)
-import Msgs exposing (Msg)
+import Ms exposing (..)
 
-homePage : Html Msg
+homePage : Html Ms.Msg
 homePage =
     h1 [] [ text "Home" ]

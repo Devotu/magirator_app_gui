@@ -1,4 +1,4 @@
-module Msgs exposing (..)
+module Ms exposing (..)
 
 import Navigation
 import String

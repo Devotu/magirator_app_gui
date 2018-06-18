@@ -14,11 +14,11 @@ import List exposing (..)
 import Home exposing (homePage)
 import Login exposing (loginPage)
 import Error exposing (notFoundPage)
-import Msgs exposing (Msg)
+import Ms exposing (Msg)
 
-main : Program Never Model Msgs.Msg
+main : Program Never Model Ms.Msg
 main =
-    Navigation.program Msgs.UrlChange
+    Navigation.program Ms.UrlChange
         { init = init
         , view = view
         , update = update
@@ -96,7 +96,7 @@ init location =
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        Msgs.UrlChange location ->
+        Ms.UrlChange location ->
           { model | currentRoute = location } ! []
 
 -- update : Msg -> Model -> ( Model, Cmd Msg )
@@ -219,6 +219,6 @@ view model =
 -- Subscriptions
 
 
-subscriptions : Model -> Sub Msg
+subscriptions : Model -> Sub Ms.Msg
 subscriptions model =
   Sub.none

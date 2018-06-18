@@ -7782,7 +7782,7 @@ var elmApp = Elm.Chat.embed(elmDiv);
 
 });
 
-;require.register("elm/update/Msgs.elm", function(exports, require, module) {
+;require.register("elm/update/Ms.elm", function(exports, require, module) {
 
 });
 
@@ -31335,7 +31335,7 @@ var _saschatimme$elm_phoenix$Phoenix$onSelfMsg = F3(
 	});
 _elm_lang$core$Native_Platform.effectManagers['Phoenix'] = {pkg: 'saschatimme/elm-phoenix', init: _saschatimme$elm_phoenix$Phoenix$init, onEffects: _saschatimme$elm_phoenix$Phoenix$onEffects, onSelfMsg: _saschatimme$elm_phoenix$Phoenix$onSelfMsg, tag: 'fx', cmdMap: _saschatimme$elm_phoenix$Phoenix$cmdMap, subMap: _saschatimme$elm_phoenix$Phoenix$subMap};
 
-var _user$project$Msgs$UrlChange = function (a) {
+var _user$project$Ms$UrlChange = function (a) {
 	return {ctor: 'UrlChange', _0: a};
 };
 
@@ -31362,7 +31362,7 @@ var _user$project$Login$loginPage = A2(
 	{ctor: '[]'},
 	{
 		ctor: '::',
-		_0: _elm_lang$html$Html$text('Login'),
+		_0: _elm_lang$html$Html$text('Logintz'),
 		_1: {ctor: '[]'}
 	});
 
@@ -31454,7 +31454,7 @@ var _user$project$Main$view = function (model) {
 };
 var _user$project$Main$main = A2(
 	_elm_lang$navigation$Navigation$program,
-	_user$project$Msgs$UrlChange,
+	_user$project$Ms$UrlChange,
 	{init: _user$project$Main$init, view: _user$project$Main$view, update: _user$project$Main$update, subscriptions: _user$project$Main$subscriptions})();
 
 var Elm = {};
