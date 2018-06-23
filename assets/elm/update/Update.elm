@@ -7,16 +7,24 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         UrlChange location ->
-          { model | currentRoute = location } ! []
+            { model | currentRoute = location } ! []
 
         NewMsg payload -> 
-        { model | status = toString payload } ! []
+            { model | status = toString payload } ! []
 
         Password password ->
-        { model | password = password } ! []
+            let
+                currentCredentials = model.credentials
+                newCredentials = { currentCredentials | password = password }
+            in
+                { model | credentials = newCredentials } ! []
 
-        Username username -> 
-        { model | username = username } ! []
+        Username username ->            
+            let
+                currentCredentials = model.credentials
+                newCredentials = { currentCredentials | username = username }
+            in             
+                { model | credentials = newCredentials } ! []
 
         SendMsg -> 
         -- let 

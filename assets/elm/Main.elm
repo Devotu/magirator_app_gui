@@ -29,8 +29,7 @@ main =
 init : Navigation.Location -> ( Model, Cmd Msg )
 init location =
     { currentRoute = location
-    , username = "xxx" 
-    , password = "yyy"
+    , credentials = { username = "xxx", password = "yyy" }
     , status = "Not initiated"
     }
     ! []

@@ -7782,6 +7782,10 @@ var elmApp = Elm.Chat.embed(elmDiv);
 
 });
 
+;require.register("elm/models/Credentials.elm", function(exports, require, module) {
+
+});
+
 ;require.register("elm/models/Model.elm", function(exports, require, module) {
 
 });
@@ -31351,6 +31355,11 @@ var _saschatimme$elm_phoenix$Phoenix$onSelfMsg = F3(
 	});
 _elm_lang$core$Native_Platform.effectManagers['Phoenix'] = {pkg: 'saschatimme/elm-phoenix', init: _saschatimme$elm_phoenix$Phoenix$init, onEffects: _saschatimme$elm_phoenix$Phoenix$onEffects, onSelfMsg: _saschatimme$elm_phoenix$Phoenix$onSelfMsg, tag: 'fx', cmdMap: _saschatimme$elm_phoenix$Phoenix$cmdMap, subMap: _saschatimme$elm_phoenix$Phoenix$subMap};
 
+var _user$project$Credentials$Credentials = F2(
+	function (a, b) {
+		return {username: a, password: b};
+	});
+
 var _user$project$Ms$Username = function (a) {
 	return {ctor: 'Username', _0: a};
 };
@@ -31365,9 +31374,9 @@ var _user$project$Ms$UrlChange = function (a) {
 	return {ctor: 'UrlChange', _0: a};
 };
 
-var _user$project$Model$Model = F4(
-	function (a, b, c, d) {
-		return {currentRoute: a, username: b, password: c, status: d};
+var _user$project$Model$Model = F3(
+	function (a, b, c) {
+		return {currentRoute: a, credentials: b, status: c};
 	});
 
 var _user$project$Error$notFoundPage = function (model) {
@@ -31387,7 +31396,11 @@ var _user$project$Home$homePage = function (model) {
 		{ctor: '[]'},
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html$text('Home'),
+			_0: _elm_lang$html$Html$text(
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					model.credentials.username,
+					A2(_elm_lang$core$Basics_ops['++'], ' ', model.credentials.password))),
 			_1: {ctor: '[]'}
 		});
 };
@@ -31533,10 +31546,10 @@ var _user$project$Login$loginPage = function (model) {
 				}),
 			_1: {
 				ctor: '::',
-				_0: A2(_user$project$Login$viewEmpty, 'Username', model.username),
+				_0: A2(_user$project$Login$viewEmpty, 'Username', model.credentials.username),
 				_1: {
 					ctor: '::',
-					_0: A2(_user$project$Login$viewEmpty, 'Password', model.password),
+					_0: A2(_user$project$Login$viewEmpty, 'Password', model.credentials.password),
 					_1: {ctor: '[]'}
 				}
 			}
@@ -31568,18 +31581,26 @@ var _user$project$Update$update = F2(
 						}),
 					{ctor: '[]'});
 			case 'Password':
+				var currentCredentials = model.credentials;
+				var newCredentials = _elm_lang$core$Native_Utils.update(
+					currentCredentials,
+					{password: _p0._0});
 				return A2(
 					_elm_lang$core$Platform_Cmd_ops['!'],
 					_elm_lang$core$Native_Utils.update(
 						model,
-						{password: _p0._0}),
+						{credentials: newCredentials}),
 					{ctor: '[]'});
 			case 'Username':
+				var currentCredentials = model.credentials;
+				var newCredentials = _elm_lang$core$Native_Utils.update(
+					currentCredentials,
+					{username: _p0._0});
 				return A2(
 					_elm_lang$core$Platform_Cmd_ops['!'],
 					_elm_lang$core$Native_Utils.update(
 						model,
-						{username: _p0._0}),
+						{credentials: newCredentials}),
 					{ctor: '[]'});
 			default:
 				return A2(
@@ -31650,7 +31671,11 @@ var _user$project$View$view = function (model) {
 var _user$project$Main$init = function (location) {
 	return A2(
 		_elm_lang$core$Platform_Cmd_ops['!'],
-		{currentRoute: location, username: 'xxx', password: 'yyy', status: 'Not initiated'},
+		{
+			currentRoute: location,
+			credentials: {username: 'xxx', password: 'yyy'},
+			status: 'Not initiated'
+		},
 		{ctor: '[]'});
 };
 var _user$project$Main$main = A2(

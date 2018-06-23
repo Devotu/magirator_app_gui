@@ -31,8 +31,8 @@ loginPage model =
         text model.status
       ]
     ],
-    viewEmpty "Username" model.username,
-    viewEmpty "Password" model.password
+    viewEmpty "Username" model.credentials.username,
+    viewEmpty "Password" model.credentials.password
   ]
 
 viewEmpty : String -> String -> Html Msg
