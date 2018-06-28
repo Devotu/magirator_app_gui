@@ -2,6 +2,11 @@ module Update exposing (..)
 
 import Model exposing (..)
 import Ms exposing (..)
+import Subscription exposing (..)
+
+import Json.Encode as JE
+import Phoenix
+import Phoenix.Push as Push
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
@@ -27,9 +32,9 @@ update msg model =
                 { model | credentials = newCredentials } ! []
 
         SendMsg -> 
-        -- let 
-        --     push = 
-        --     Push.init "app:main" "new_msg"
-        --         |> Push.withPayload (JE.object [( "msg",  JE.string model.password )])
-        -- in
-            { model | status = "sending" } ! [] -- Phoenix.push mainSocket push ]
+            let 
+                push = 
+                Push.init "app:main" "new_msg"
+                    |> Push.withPayload (JE.object [( "msg",  JE.string "Pwd" )])
+            in
+                { model | status = "sending" } ! [ Phoenix.push mainSocket push ]
