@@ -27,6 +27,7 @@ init : Navigation.Location -> ( Model, Cmd Msg )
 init location =
     { currentRoute = location
     , credentials = { username = "xxx", password = "yyy" }
+    , socketUrl = ""
     , status = "Not initiated"
     }
     ! []

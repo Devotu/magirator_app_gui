@@ -37,4 +37,4 @@ update msg model =
                 Push.init "app:main" "new_msg"
                     |> Push.withPayload (JE.object [( "msg",  JE.string "Pwd" )])
             in
-                { model | status = "sending" } ! [ Phoenix.push mainSocket push ]
+                { model | status = "sending" } ! [ Phoenix.push (mainSocketUrl model) push ]

@@ -9,17 +9,30 @@ import Model exposing (..)
 import Ms exposing (..)
 
 
-mainSocket : String
-mainSocket =
-  "ws://localhost:4000/socket/websocket?user=Otto&pwd=hemligt"
+mainSocketUrl : Model -> String
+mainSocketUrl model =
+  let 
+    credentials = model.credentials
+  in
+    "ws://localhost:4000/socket/websocket?user=" ++ credentials.username ++ "&pwd=" ++ credentials.password
 
-socket =
-  Socket.init mainSocket
+socket model =
+  let 
+    url = mainSocketUrl model
+  in
+    Socket.init url
 
 channel model =
   Channel.init "app:main"
     |> Channel.on "new_msg" NewMsg
     |> Channel.onJoin NewMsg
 
+subscriptions : Model -> Sub Msg
 subscriptions model =
-  Phoenix.connect socket [channel model]
+  let 
+    credentials = model.credentials
+  in
+    if credentials.username /= "xxx" && credentials.password /= "yyy" then 
+      Phoenix.connect (socket model) [channel model]
+    else 
+      Sub.none
