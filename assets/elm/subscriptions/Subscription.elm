@@ -5,34 +5,27 @@ import Phoenix.Socket as Socket
 import Phoenix.Channel as Channel
 import Phoenix.Push as Push
 
+import ChannelStatus exposing (..)
 import Model exposing (..)
 import Ms exposing (..)
 
-
-mainSocketUrl : Model -> String
-mainSocketUrl model =
-  let 
-    credentials = model.credentials
-  in
-    "ws://localhost:4000/socket/websocket?user=" ++ credentials.username ++ "&pwd=" ++ credentials.password
-
+socket : Model -> Socket.Socket Msg
 socket model =
-  let 
-    url = mainSocketUrl model
-  in
-    Socket.init url
+  Socket.init model.socketUrl
+    |> Socket.onOpen SocketInitated
+    |> Socket.onAbnormalClose SocketDenied
 
+
+channel : Model -> Channel.Channel Msg
 channel model =
   Channel.init "app:main"
     |> Channel.on "new_msg" NewMsg
-    |> Channel.onJoin NewMsg
+    |> Channel.onJoin AppChannelInitiated
+
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-  let 
-    credentials = model.credentials
-  in
-    if credentials.username /= "xxx" && credentials.password /= "yyy" then 
-      Phoenix.connect (socket model) [channel model]
-    else 
-      Sub.none
+  if model.channelStatus == ConnectionInitiated then 
+    Phoenix.connect (socket model) [channel model]
+  else 
+    Sub.none

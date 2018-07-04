@@ -6,9 +6,6 @@ import Html.Events exposing (onClick, onInput)
 import Ms exposing (..)
 import Model exposing (Model)
 
--- loginPage : Html Ms.Msg
--- loginPage =
---     h1 [] [ text "Loginz" ]
 
 loginPage : Model -> Html Msg
 loginPage model =
@@ -24,11 +21,22 @@ loginPage model =
       ],
       input [class "input input-text", placeholder "password", type_ "text", onInput Password][
 
-      ], button [class "input", onClick SendMsg][
-        text "Sign in"
+      ], button [class "input", onClick InitAppChannel][
+        text ("Sign in (" ++ model.credentials.username ++ "/" ++ model.credentials.password ++ ")")
       ],
       div [][
         text model.status
+      ],
+      div [][
+        text model.socketUrl
+      ],
+      div [][
+        text (toString model.channelStatus)
+      ],
+      div [][
+        text (model.credentials.username ++ " / " ++ model.credentials.password)
+      ], button [class "input", onClick SendMsg][
+        text "Send"
       ]
     ],
     viewEmpty "Username" model.credentials.username,
