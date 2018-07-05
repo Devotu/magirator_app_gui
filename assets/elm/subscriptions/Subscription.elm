@@ -3,7 +3,6 @@ module Subscription exposing (..)
 import Phoenix
 import Phoenix.Socket as Socket
 import Phoenix.Channel as Channel
-import Phoenix.Push as Push
 
 import ChannelStatus exposing (..)
 import Model exposing (..)
@@ -23,10 +22,9 @@ channel model =
     |> Channel.on "new_msg" NewMsg
     |> Channel.onJoin AppChannelInitiated
 
-
 subscriptions : Model -> Sub Msg
 subscriptions model =
-  if model.channelStatus == ConnectionInitiated then 
+  if model.channelStatus == ConnectionInitiated || model.channelStatus == Connected then 
     Phoenix.connect (socket model) [channel model]
   else 
     Sub.none

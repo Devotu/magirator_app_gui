@@ -28,8 +28,7 @@ update msg model =
 
         InitAppChannel ->            
             { model | 
-                socketUrl = "ws://localhost:4000/socket/websocket"
-                , status = "initiated"
+                status = "initiated"
                 , channelStatus = ChannelStatus.ConnectionInitiated
             } ! [] 
 
@@ -45,12 +44,13 @@ update msg model =
         SocketDenied abnormalClose ->
             { model | 
                 channelStatus = ChannelStatus.NotConnected
+                , status = "socket denied"
             } ! []
 
         SendMsg -> 
-            let 
-                push = 
+        let 
+            push = 
                 Push.init "app:main" "new_msg"
-                    |> Push.withPayload (JE.object [( "msg",  JE.string "Pwd" )])
-            in
-                { model | status = "sending" } ! [ Phoenix.push model.socketUrl push ]
+                    |> Push.withPayload (JE.object [( "msg",  JE.string "Messaget" )])
+        in
+            { model | status = "sending" } ! [ Phoenix.push model.socketUrl push ]
