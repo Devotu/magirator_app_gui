@@ -12,6 +12,7 @@ import Ms exposing (..)
 socket : Model -> Socket.Socket Msg
 socket model =
   Socket.init model.socketUrl
+    |> Socket.withParams[ ("user", model.username), ("pwd", model.password) ]
     |> Socket.onOpen SocketInitated
     |> Socket.onAbnormalClose SocketDenied
 

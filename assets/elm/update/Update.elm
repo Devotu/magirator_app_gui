@@ -28,7 +28,7 @@ update msg model =
 
         InitAppChannel ->            
             { model | 
-                socketUrl = "ws://localhost:4000/socket/websocket?user=" ++ model.username ++ "&pwd=" ++ model.password
+                socketUrl = "ws://localhost:4000/socket/websocket"
                 , status = "initiated"
                 , channelStatus = ChannelStatus.ConnectionInitiated
             } ! [] 
