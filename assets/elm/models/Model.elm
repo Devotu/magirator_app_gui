@@ -1,16 +1,15 @@
 module Model exposing (..)
 
 import Navigation exposing (..)
-import ChannelStatus exposing (..)
+import ConnectionStatus exposing (..)
 
-import Credentials exposing (..)
 
 type alias Model =
     { currentRoute : Navigation.Location
     , username : String
     , password : String
-    , credentials : Credentials
     , socketUrl : String
-    , channelStatus : ChannelStatus
+    , socketStatus : ConnectionStatus
+    , channelStatus : ConnectionStatus
     , status : String
     }

@@ -2,7 +2,7 @@ module Update exposing (..)
 
 import Model exposing (..)
 import Ms exposing (..)
-import ChannelStatus exposing (..)
+import ConnectionStatus exposing (..)
 import Subscription exposing (..)
 
 import Json.Encode as JE
@@ -26,25 +26,19 @@ update msg model =
         Password password ->
             { model | password = password } ! []
 
-        InitAppChannel ->            
-            { model | 
-                status = "initiated"
-                , channelStatus = ChannelStatus.ConnectionInitiated
-            } ! [] 
+        ChannelMainConnect ->            
+            { model | channelStatus = ConnectionStatus.Connecting } ! [] 
 
-        AppChannelInitiated importantMessage ->
-            { model | 
-                status = "test"
-                , channelStatus = ChannelStatus.Connected
-            } ! []
+        ChannelMainConnected importantMessage ->
+            { model | channelStatus = ConnectionStatus.Connected } ! []
 
-        SocketInitated ->
-            { model | status = "socket initated" } ! []
+        SocketConnected ->
+            { model | socketStatus = ConnectionStatus.Connected } ! []
 
         SocketDenied abnormalClose ->
             { model | 
-                channelStatus = ChannelStatus.NotConnected
-                , status = "socket denied"
+                socketStatus = ConnectionStatus.Disconnected 
+                , channelStatus = ConnectionStatus.Disconnected
             } ! []
 
         SendMsg -> 

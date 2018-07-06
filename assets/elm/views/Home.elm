@@ -6,4 +6,4 @@ import Model exposing (Model)
 
 homePage : Model -> Html Ms.Msg
 homePage model =
-    h1 [] [ text (model.credentials.username ++ " " ++ model.credentials.password) ]
+    h1 [] [ text (model.username ++ " " ++ model.password) ]

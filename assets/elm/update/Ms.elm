@@ -5,5 +5,9 @@ import Json.Decode as JDC exposing (Decoder)
 import Phoenix.Socket as Socket exposing ( AbnormalClose)
 
 type Msg
-    = UrlChange Navigation.Location | NewMsg JDC.Value | Password String | SendMsg | Username String | 
-    SocketInitated | SocketDenied AbnormalClose | InitAppChannel | AppChannelInitiated JDC.Value
+    = UrlChange Navigation.Location 
+    | NewMsg JDC.Value 
+    | Password String | Username String 
+    | SocketConnected | SocketDenied AbnormalClose
+    | ChannelMainConnect | ChannelMainConnected JDC.Value
+    | SendMsg

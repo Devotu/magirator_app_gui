@@ -21,26 +21,19 @@ loginPage model =
       ],
       input [class "input input-text", placeholder "password", type_ "text", onInput Password][
 
-      ], button [class "input", onClick InitAppChannel][
-        text ("Sign in (" ++ model.credentials.username ++ "/" ++ model.credentials.password ++ ")")
+      ], button [class "input", onClick ChannelMainConnect][
+        text ("Sign in (" ++ model.username ++ "/" ++ model.password ++ ")")
       ],
       div [][
-        text model.status
-      ],
-      div [][
-        text model.socketUrl
-      ],
-      div [][
-        text (toString model.channelStatus)
-      ],
-      div [][
-        text (model.credentials.username ++ " / " ++ model.credentials.password)
+        p [][ text ("Status: " ++ model.status) ]
+        , p [][ text ("Socket: " ++ toString model.socketStatus) ]
+        , p [][ text ("Channel: " ++ toString model.channelStatus) ]
       ], button [class "input", onClick SendMsg][
         text "Send"
       ]
     ],
-    viewEmpty "Username" model.credentials.username,
-    viewEmpty "Password" model.credentials.password
+    viewEmpty "Username" model.username,
+    viewEmpty "Password" model.password
   ]
 
 viewEmpty : String -> String -> Html Msg

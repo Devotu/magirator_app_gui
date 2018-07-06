@@ -5,7 +5,7 @@ import Ms exposing (Msg)
 import Subscription exposing (subscriptions)
 import Update exposing (update)
 import View exposing (view)
-import ChannelStatus exposing (..)
+import ConnectionStatus exposing (..)
 
 main : Program Never Model Msg
 main =
@@ -20,11 +20,11 @@ main =
 init : Navigation.Location -> ( Model, Cmd Msg )
 init location =
     { currentRoute = location
-    , username = "aaa"
-    , password = "bbb"
-    , credentials = { username = "xxx", password = "yyy" }
+    , username = "x"
+    , password = "y"
     , socketUrl = "ws://localhost:4000/socket/websocket"
-    , channelStatus = ChannelStatus.NotConnected
-    , status = "Not initiated"
+    , socketStatus = ConnectionStatus.NotConnected
+    , channelStatus = ConnectionStatus.NotConnected
+    , status = "Init"
     }
     ! []
