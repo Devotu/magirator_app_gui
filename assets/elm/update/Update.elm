@@ -37,8 +37,8 @@ update msg model =
 
         SocketDenied abnormalClose ->
             { model | 
-                socketStatus = ConnectionStatus.Disconnected 
-                , channelStatus = ConnectionStatus.Disconnected
+                socketStatus = ConnectionStatus.Refused 
+                , channelStatus = ConnectionStatus.NotConnected
             } ! []
 
         SendMsg -> 

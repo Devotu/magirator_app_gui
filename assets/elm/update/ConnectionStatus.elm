@@ -1,4 +1,4 @@
 module ConnectionStatus exposing (..)
 
 type ConnectionStatus 
-    = NotConnected | Connecting | Connected | Disconnected | Reconnecting
+    = NotConnected | Connecting | Connected | Refused | Disconnected | Reconnecting
