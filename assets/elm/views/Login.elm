@@ -21,7 +21,7 @@ loginPage model =
       ],
       input [class "input input-text", placeholder "password", type_ "text", onInput Password][
 
-      ], button [class "input", onClick ChannelMainConnect][
+      ], button [class "input", onClick ChannelAppJoin][
         text ("Sign in (" ++ model.username ++ "/" ++ model.password ++ ")")
       ],
       div [][

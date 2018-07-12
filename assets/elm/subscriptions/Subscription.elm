@@ -18,9 +18,10 @@ socket model =
 
 channel : Model -> Channel.Channel Msg
 channel model =
-  Channel.init "app:main"
+  Channel.init "app:user"
     |> Channel.on "new_msg" NewMsg
-    |> Channel.onJoin ChannelMainConnected
+    |> Channel.onJoin ChannelAppJoined
+    |> Channel.onJoinError ChannelAppJoinError
 
 
 subscriptions : Model -> Sub Msg

@@ -26,11 +26,14 @@ update msg model =
         Password password ->
             { model | password = password } ! []
 
-        ChannelMainConnect ->            
+        ChannelAppJoin ->            
             { model | channelStatus = ConnectionStatus.Connecting } ! [] 
 
-        ChannelMainConnected importantMessage ->
+        ChannelAppJoined importantMessage ->
             { model | channelStatus = ConnectionStatus.Connected } ! []
+
+        ChannelAppJoinError importantMessage ->
+            { model | channelStatus = ConnectionStatus.Refused } ! []
 
         SocketConnected ->
             { model | socketStatus = ConnectionStatus.Connected } ! []
@@ -44,7 +47,7 @@ update msg model =
         SendMsg -> 
         let 
             push = 
-                Push.init "app:main" "new_msg"
+                Push.init "app:user" "new_msg"
                     |> Push.withPayload (JE.object [( "msg",  JE.string "Messaget" )])
         in
             { model | status = "sending" } ! [ Phoenix.push model.socketUrl push ]

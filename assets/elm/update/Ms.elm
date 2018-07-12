@@ -9,5 +9,5 @@ type Msg
     | NewMsg JDC.Value 
     | Password String | Username String 
     | SocketConnected | SocketDenied AbnormalClose
-    | ChannelMainConnect | ChannelMainConnected JDC.Value
+    | ChannelAppJoin | ChannelAppJoined JDC.Value | ChannelAppJoinError JDC.Value
     | SendMsg
