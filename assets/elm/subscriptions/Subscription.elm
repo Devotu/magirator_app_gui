@@ -15,10 +15,13 @@ socket model =
     |> Socket.onOpen SocketConnected
     |> Socket.onAbnormalClose SocketDenied
 
+appChannel : Model -> String
+appChannel model =
+  "app:" ++ model.username
 
 channel : Model -> Channel.Channel Msg
 channel model =
-  Channel.init "app:user"
+  Channel.init (appChannel model)
     |> Channel.on "new_msg" NewMsg
     |> Channel.onJoin ChannelAppJoined
     |> Channel.onJoinError ChannelAppJoinError

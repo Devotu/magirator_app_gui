@@ -47,7 +47,7 @@ update msg model =
         SendMsg -> 
         let 
             push = 
-                Push.init "app:user" "new_msg"
+                Push.init (appChannel model) "new_msg"
                     |> Push.withPayload (JE.object [( "msg",  JE.string "Messaget" )])
         in
             { model | status = "sending" } ! [ Phoenix.push model.socketUrl push ]
