@@ -1,4 +1,4 @@
-module Home exposing (..)
+module NewDeck exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
@@ -6,13 +6,13 @@ import Html.Events exposing (onClick)
 import Ms exposing (..)
 import Model exposing (Model)
 
-homePage : Model -> Html Ms.Msg
-homePage model =
+newDeckPage : Model -> Html Ms.Msg
+newDeckPage model =
   div [class "mr-main flex-column flex-start"][
-    h4 [][ text ("Home") ]
+    h4 [][ text ("New Deck") ]
     ,div [class "dialog-large"][
-        button [class "input", onClick (Navigate("newdeck")) ][
-        text ("New Deck")
+        button [class "input", onClick (Navigate("home")) ][
+        text ("Home")
       ]
     ]
     ,div [class "dialog-large"][

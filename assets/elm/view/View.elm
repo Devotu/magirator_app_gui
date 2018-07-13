@@ -7,12 +7,14 @@ import Model exposing (Model)
 
 import Home exposing (homePage)
 import Login exposing (loginPage)
+import NewDeck exposing (newDeckPage)
 import Error exposing (notFoundPage)
 
 type RoutePath
     = DefaultRoute
     | HomeRoute
     | LoginRoute
+    | NewDeckRoute
     | NotFoundRoute
 
 
@@ -31,6 +33,9 @@ fromUrlHash urlHash =
 
             [ "login" ] ->
                 LoginRoute
+
+            [ "newdeck" ] ->
+                NewDeckRoute
 
             _ ->
               NotFoundRoute
@@ -51,6 +56,9 @@ pageBody model =
 
             LoginRoute ->
                 loginPage model
+
+            NewDeckRoute ->
+                newDeckPage model
 
             NotFoundRoute ->
                 notFoundPage model

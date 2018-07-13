@@ -51,3 +51,6 @@ update msg model =
                     |> Push.withPayload (JE.object [( "msg",  JE.string "Messaget" )])
         in
             { model | status = "sending" } ! [ Phoenix.push model.socketUrl push ]
+        
+        Navigate page ->
+            { model | channelStatus = ConnectionStatus.Connected } ! [ newUrl("/#/" ++ page) ]

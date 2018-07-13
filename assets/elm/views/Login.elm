@@ -23,17 +23,17 @@ loginPage model =
 
       ], button [class "input", onClick ChannelAppJoin][
         text ("Sign in (" ++ model.username ++ "/" ++ model.password ++ ")")
-      ],
+      ]
+    ],
+    viewEmpty "Username" model.username
+    ,viewEmpty "Password" model.password
+    ,div [class "dialog-large"][
       div [][
         p [][ text ("Status: " ++ model.status) ]
         , p [][ text ("Socket: " ++ toString model.socketStatus) ]
         , p [][ text ("Channel: " ++ toString model.channelStatus) ]
-      ], button [class "input", onClick SendMsg][
-        text "Send"
       ]
-    ],
-    viewEmpty "Username" model.username,
-    viewEmpty "Password" model.password
+    ]
   ]
 
 viewEmpty : String -> String -> Html Msg
