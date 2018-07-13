@@ -4,6 +4,7 @@ import Html exposing (Html, div)
 import List exposing (..)
 import Ms exposing (Msg)
 import Model exposing (Model)
+import ConnectionStatus exposing (..)
 
 import Home exposing (homePage)
 import Login exposing (loginPage)
@@ -47,21 +48,26 @@ pageBody model =
         routePath =
             fromUrlHash model.currentRoute.hash
     in
-        case routePath of
-            DefaultRoute ->
-                homePage model
+        if model.channelStatus == ConnectionStatus.Connected then
+            case routePath of
+                DefaultRoute ->
+                    homePage model
 
-            HomeRoute ->
-                homePage model
+                HomeRoute ->
+                    homePage model
 
-            LoginRoute ->
-                loginPage model
+                LoginRoute ->
+                    loginPage model
 
-            NewDeckRoute ->
-                newDeckPage model
+                NewDeckRoute ->
+                    newDeckPage model
 
-            NotFoundRoute ->
-                notFoundPage model
+                NotFoundRoute ->
+                    notFoundPage model
+        
+        else
+            loginPage model
+
 
 
 view : Model -> Html Msg
