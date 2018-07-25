@@ -2,6 +2,7 @@ module Model exposing (..)
 
 import Navigation exposing (..)
 import ConnectionStatus exposing (..)
+import Deck exposing (..)
 
 
 type alias Model =
@@ -12,4 +13,5 @@ type alias Model =
     , socketStatus : ConnectionStatus
     , channelStatus : ConnectionStatus
     , status : String
+    , newDeck : Deck
     }

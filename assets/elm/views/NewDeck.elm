@@ -35,7 +35,13 @@ newDeckPage model =
 
 newDeck : Model -> Request
 newDeck model =
+  let 
+    deck = model.newDeck
+  in
   {
-    endpoint = "post"
-    , object = Json.Encode.object [ ("name", string "New deck"), ("theme", string "Testing") ]
+    endpoint = "newdeck"
+    , object = Json.Encode.object [
+      ("name", string deck.name)
+      , ("theme", string deck.theme)
+    ]
   }

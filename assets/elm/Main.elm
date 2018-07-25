@@ -6,6 +6,7 @@ import Subscription exposing (subscriptions)
 import Update exposing (update)
 import View exposing (view)
 import ConnectionStatus exposing (..)
+import Deck exposing (..)
 
 main : Program Never Model Msg
 main =
@@ -26,5 +27,6 @@ init location =
     , socketStatus = ConnectionStatus.NotConnected
     , channelStatus = ConnectionStatus.NotConnected
     , status = "Init"
+    , newDeck = emptyDeck
     }
     ! []
