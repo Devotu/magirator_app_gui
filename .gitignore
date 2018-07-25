@@ -84,3 +84,7 @@ typings/
 
 # Serverless directories
 .serverless
+
+priv/static/js/
+
+assets/vendor/
