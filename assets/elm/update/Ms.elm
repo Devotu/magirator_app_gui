@@ -12,6 +12,5 @@ type Msg
     | Password String | Username String 
     | SocketConnected | SocketDenied AbnormalClose
     | ChannelAppJoin | ChannelAppJoined JDC.Value | ChannelAppJoinError JDC.Value
-    | SendMsg
     | Navigate String
     | Post Request

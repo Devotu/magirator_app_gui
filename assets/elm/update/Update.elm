@@ -43,14 +43,6 @@ update msg model =
                 socketStatus = ConnectionStatus.Refused 
                 , channelStatus = ConnectionStatus.NotConnected
             } ! []
-
-        SendMsg -> 
-        let 
-            push = 
-                Push.init (appChannel model) "new_msg"
-                    |> Push.withPayload (JE.object [( "msg",  JE.string "Messaget" )])
-        in
-            { model | status = "sending" } ! [ Phoenix.push model.socketUrl push ]
         
         Navigate page ->
             { model | channelStatus = ConnectionStatus.Connected } ! [ newUrl("/#/" ++ page) ]
