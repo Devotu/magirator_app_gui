@@ -55,10 +55,10 @@ update msg model =
         Navigate page ->
             { model | channelStatus = ConnectionStatus.Connected } ! [ newUrl("/#/" ++ page) ]
         
-        Post obj -> 
+        Post request -> 
         let 
             push = 
-                Push.init (appChannel model) "post"
-                    |> Push.withPayload ( obj )
+                Push.init (appChannel model) request.endpoint
+                    |> Push.withPayload ( request.object )
         in
             { model | status = "posting" } ! [ Phoenix.push model.socketUrl push ]

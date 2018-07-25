@@ -6,6 +6,7 @@ import Html.Events exposing (onClick)
 import Ms exposing (..)
 import Model exposing (Model)
 import Json.Encode exposing (..)
+import Request exposing (..)
 
 newDeckPage : Model -> Html Ms.Msg
 newDeckPage model =
@@ -13,8 +14,8 @@ newDeckPage model =
     h4 [][ text ("New Deck") ]
     ,div [class "dialog-large"][
         button [class "input", onClick ( 
-          Post ( Json.Encode.object [ ("name", string "Deck1"), ("theme", string "Raid") ] )
-         ) ][
+          Post (newDeck model)
+        ) ][
         text ("New")
       ]
     ]
@@ -31,3 +32,10 @@ newDeckPage model =
       ]
     ]
   ]
+
+newDeck : Model -> Request
+newDeck model =
+  {
+    endpoint = "post"
+    , object = Json.Encode.object [ ("name", string "New deck"), ("theme", string "Testing") ]
+  }

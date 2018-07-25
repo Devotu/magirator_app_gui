@@ -4,6 +4,7 @@ import Navigation
 import Json.Decode as JDC exposing (Decoder)
 import Json.Encode exposing (..)
 import Phoenix.Socket as Socket exposing ( AbnormalClose)
+import Request exposing (..)
 
 type Msg
     = UrlChange Navigation.Location 
@@ -13,4 +14,4 @@ type Msg
     | ChannelAppJoin | ChannelAppJoined JDC.Value | ChannelAppJoinError JDC.Value
     | SendMsg
     | Navigate String
-    | Post Json.Encode.Value
+    | Post Request
