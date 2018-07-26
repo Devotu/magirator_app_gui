@@ -50,7 +50,7 @@ update msg model =
         Post request -> 
         let 
             push = 
-                Push.init (appChannel model) request.endpoint
+                Push.init (appChannel model) request.action
                     |> Push.withPayload ( request.object )
         in
             { model | status = "posting" } ! [ Phoenix.push model.socketUrl push ]

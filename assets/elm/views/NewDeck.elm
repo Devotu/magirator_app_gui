@@ -39,7 +39,7 @@ newDeck model =
     deck = model.newDeck
   in
   {
-    endpoint = "newdeck"
+    action = "deck:new"
     , object = Json.Encode.object [
       ("name", string deck.name)
       , ("theme", string deck.theme)
