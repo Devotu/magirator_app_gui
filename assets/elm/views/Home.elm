@@ -15,11 +15,4 @@ homePage model =
         text ("New Deck")
       ]
     ]
-    ,div [class "dialog-large"][
-      div [][
-        p [][ text ("Status: " ++ model.status) ]
-        , p [][ text ("Socket: " ++ toString model.socketStatus) ]
-        , p [][ text ("Channel: " ++ toString model.channelStatus) ]
-      ]
-    ]
   ]

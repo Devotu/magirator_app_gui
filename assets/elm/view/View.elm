@@ -1,6 +1,7 @@
 module View exposing (..)
 
-import Html exposing (Html, div)
+import Html exposing (Html, div, text, p)
+import Html.Attributes exposing (class)
 import List exposing (..)
 import Ms exposing (Msg)
 import Model exposing (Model)
@@ -10,6 +11,7 @@ import Home exposing (homePage)
 import Login exposing (loginPage)
 import NewDeck exposing (newDeckPage)
 import Error exposing (notFoundPage)
+import DebugSquare exposing (debugSquare)
 
 type RoutePath
     = DefaultRoute
@@ -72,4 +74,7 @@ pageBody model =
 
 view : Model -> Html Msg
 view model =
-    div [ ][ pageBody model ]
+    div [ ][  
+            debugSquare model
+            ,pageBody model
+        ]

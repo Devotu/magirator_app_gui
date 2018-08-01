@@ -27,13 +27,6 @@ loginPage model =
     ],
     viewEmpty "Username" model.username
     ,viewEmpty "Password" model.password
-    ,div [class "dialog-large"][
-      div [][
-        p [][ text ("Status: " ++ model.status) ]
-        , p [][ text ("Socket: " ++ toString model.socketStatus) ]
-        , p [][ text ("Channel: " ++ toString model.channelStatus) ]
-      ]
-    ]
   ]
 
 viewEmpty : String -> String -> Html Msg

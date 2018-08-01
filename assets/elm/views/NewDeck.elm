@@ -24,13 +24,6 @@ newDeckPage model =
         text ("Home")
       ]
     ]
-    ,div [class "dialog-large"][
-      div [][
-        p [][ text ("Status: " ++ model.status) ]
-        , p [][ text ("Socket: " ++ toString model.socketStatus) ]
-        , p [][ text ("Channel: " ++ toString model.channelStatus) ]
-      ]
-    ]
   ]
 
 newDeck : Model -> Request
@@ -39,7 +32,7 @@ newDeck model =
     deck = model.newDeck
   in
   {
-    action = "deck:new"
+    action = "deck:create"
     , object = Json.Encode.object [
       ("name", string deck.name)
       , ("theme", string deck.theme)

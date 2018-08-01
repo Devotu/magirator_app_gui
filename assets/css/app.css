@@ -1,1 +1,6 @@
 /* This file is for your main application css. */
+.debug-box {
+    position: absolute;
+    margin-top: -20vmin !important;
+    margin-left: -20vmin !important;
+}
