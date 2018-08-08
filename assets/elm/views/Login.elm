@@ -15,13 +15,10 @@ loginPage model =
         button [class "input"][
           text "Sign up"
         ]
-      ],
-      input [class "input input-text", placeholder "username", type_ "text", onInput Username][
-
-      ],
-      input [class "input input-text", placeholder "password", type_ "text", onInput Password][
-
-      ], button [class "input", onClick ChannelAppJoin][
+      ]
+      , input [class "input input-text", placeholder "username", type_ "text", onInput Username][ ]
+      , input [class "input input-text", placeholder "password", type_ "text", onInput Password][ ]
+      , button [class "input", onClick ChannelAppJoin][
         text ("Sign in (" ++ model.username ++ "/" ++ model.password ++ ")")
       ]
     ],

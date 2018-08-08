@@ -26,4 +26,4 @@ emptyDeck =
         , green = False
         , blue = False
         , colorless = False
-    }
+    }            

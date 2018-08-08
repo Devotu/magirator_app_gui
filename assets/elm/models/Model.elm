@@ -13,5 +13,5 @@ type alias Model =
     , socketStatus : ConnectionStatus
     , channelStatus : ConnectionStatus
     , status : String
-    , newDeck : Deck
+    , deck : Deck
     }

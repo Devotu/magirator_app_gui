@@ -6,6 +6,7 @@ import Model exposing (..)
 import Ms exposing (..)
 import ConnectionStatus exposing (..)
 import Subscription exposing (..)
+import Updaters exposing (..)
 
 import Json.Encode as JE
 import Phoenix
@@ -54,3 +55,9 @@ update msg model =
                     |> Push.withPayload ( request.object )
         in
             { model | status = "posting" } ! [ Phoenix.push model.socketUrl push ]
+
+        DeckName name ->
+            updateDeck (Name name) model ! []
+
+        DeckTheme theme ->
+            updateDeck (Theme theme) model ! []

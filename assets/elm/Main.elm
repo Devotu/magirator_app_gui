@@ -27,6 +27,6 @@ init location =
     , socketStatus = ConnectionStatus.NotConnected
     , channelStatus = ConnectionStatus.NotConnected
     , status = "Init"
-    , newDeck = emptyDeck
+    , deck = emptyDeck
     }
     ! []
