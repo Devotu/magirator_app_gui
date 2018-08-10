@@ -87,3 +87,12 @@ button.input {
     background-color: tomato;
 }
 
+.half-width {
+    width: 40%;
+}
+
+.split-choice {
+    flex-direction: row;
+    justify-content: space-between;
+    display: flex;
+}

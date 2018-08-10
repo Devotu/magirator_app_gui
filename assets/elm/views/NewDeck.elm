@@ -14,17 +14,11 @@ newDeckPage model =
   div [class "mr-main flex-column flex-start"][
     h4 [][ text ("New Deck") ]
     ,div [class "dialog-large"][
-        button [class "input", onClick ( 
-          Post (newDeck model)
-        ) ][
-        text ("New")
-      ]
-    ]
-    , input [class "input input-text", placeholder "name", type_ "text", onInput DeckName ][ ]
-    , input [class "input input-text", placeholder "theme", type_ "text", onInput DeckTheme ][ ]
-    ,div [class "dialog-large"][
-        button [class "input", onClick (Navigate("home")) ][
-        text ("Home")
+      input [class "input input-text", placeholder "name", type_ "text", onInput DeckName][ ]
+      ,input [class "input input-text", placeholder "theme", type_ "text", onInput DeckTheme][ ]
+      ,div [class "split-choice"][
+        button [class "input half-width", onClick ( Navigate("home") ) ][ text ("Back") ]
+        ,button [class "input half-width", onClick ( Post (newDeck model) ) ][ text ("Create") ]
       ]
     ]
   ]
