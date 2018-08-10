@@ -7,15 +7,26 @@ import Ms exposing (..)
 import Model exposing (Model)
 import Json.Encode exposing (..)
 import Request exposing (..)
-import Deck exposing (..)
+import Deck exposing (formats)
+import Input exposing (inputText, inputSelect)
 
 newDeckPage : Model -> Html Msg
 newDeckPage model =
   div [class "mr-main flex-column flex-start"][
     h4 [][ text ("New Deck") ]
     ,div [class "dialog-large"][
-      input [class "input input-text", placeholder "name", type_ "text", onInput DeckName][ ]
-      ,input [class "input input-text", placeholder "theme", type_ "text", onInput DeckTheme][ ]
+      inputText "name" DeckName
+      ,inputText "test" DeckTheme
+      ,inputText "theme" DeckTheme
+      ,inputSelect formats DeckFormat
+      ,input [class "input input-checkbox", placeholder "theme", type_ "checkbox", onInput DeckTheme][ ]
+      ,input [class "input input-checkbox", placeholder "theme", type_ "checkbox", onInput DeckTheme][ ]
+      ,input [class "input input-checkbox", placeholder "theme", type_ "checkbox", onInput DeckTheme][ ]
+      ,input [class "input input-checkbox", placeholder "theme", type_ "checkbox", onInput DeckTheme][ ]
+      ,input [class "input input-checkbox", placeholder "theme", type_ "checkbox", onInput DeckTheme][ ]
+      ,input [class "input input-checkbox", placeholder "theme", type_ "checkbox", onInput DeckTheme][ ]
+      ,input [class "input input-select", placeholder "budget", type_ "select", onInput DeckTheme][ ]
+      ,inputText "worth" DeckTheme
       ,div [class "split-choice"][
         button [class "input half-width", onClick ( Navigate("home") ) ][ text ("Back") ]
         ,button [class "input half-width", onClick ( Post (newDeck model) ) ][ text ("Create") ]

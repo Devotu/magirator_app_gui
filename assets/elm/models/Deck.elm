@@ -11,6 +11,8 @@ type alias Deck =
     , green : Bool
     , blue : Bool
     , colorless : Bool
+    , worth : Float
+    , budget : Int
     }
 
 emptyDeck : Deck
@@ -19,11 +21,17 @@ emptyDeck =
         id = 0
         , name = ""
         , theme = ""
-        , format = "Standard"
+        , format = "None"
         , black = False
         , white = False
         , red = False
         , green = False
         , blue = False
         , colorless = False
-    }            
+        , budget = 0
+        , worth = 0
+    }     
+
+formats : List String
+formats
+    = ["None", "Standard", "Modern"]

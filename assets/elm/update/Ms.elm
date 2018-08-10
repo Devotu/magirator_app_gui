@@ -3,7 +3,7 @@ module Ms exposing (..)
 import Navigation
 import Json.Decode as JDC exposing (Decoder)
 import Json.Encode exposing (..)
-import Phoenix.Socket as Socket exposing ( AbnormalClose)
+import Phoenix.Socket as Socket exposing (AbnormalClose)
 import Request exposing (..)
 
 type Msg
@@ -14,4 +14,4 @@ type Msg
     | ChannelAppJoin | ChannelAppJoined JDC.Value | ChannelAppJoinError JDC.Value
     | Navigate String
     | Post Request
-    | DeckName String | DeckTheme String
+    | DeckName String | DeckTheme String | DeckFormat String

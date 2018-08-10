@@ -86,6 +86,7 @@ typings/
 .serverless
 
 priv/static/js/
-priv/static/css/
 
 assets/vendor/
+
+priv/static/css/
