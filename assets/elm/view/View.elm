@@ -50,7 +50,8 @@ pageBody model =
         routePath =
             fromUrlHash model.currentRoute.hash
     in
-        if model.channelStatus == ConnectionStatus.Connected then
+        if 1 == 1 then
+        -- if model.channelStatus == ConnectionStatus.Connected then
             case routePath of
                 DefaultRoute ->
                     homePage model

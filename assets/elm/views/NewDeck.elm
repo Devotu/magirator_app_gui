@@ -8,7 +8,7 @@ import Model exposing (Model)
 import Json.Encode exposing (..)
 import Request exposing (..)
 import Deck exposing (formats)
-import Input exposing (inputText, inputSelect)
+import Input exposing (inputText, inputSelect, inputColors)
 
 newDeckPage : Model -> Html Msg
 newDeckPage model =
@@ -16,16 +16,10 @@ newDeckPage model =
     h4 [][ text ("New Deck") ]
     ,div [class "dialog-large"][
       inputText "name" DeckName
-      ,inputText "test" DeckTheme
       ,inputText "theme" DeckTheme
       ,inputSelect formats DeckFormat
-      ,input [class "input input-checkbox", placeholder "theme", type_ "checkbox", onInput DeckTheme][ ]
-      ,input [class "input input-checkbox", placeholder "theme", type_ "checkbox", onInput DeckTheme][ ]
-      ,input [class "input input-checkbox", placeholder "theme", type_ "checkbox", onInput DeckTheme][ ]
-      ,input [class "input input-checkbox", placeholder "theme", type_ "checkbox", onInput DeckTheme][ ]
-      ,input [class "input input-checkbox", placeholder "theme", type_ "checkbox", onInput DeckTheme][ ]
-      ,input [class "input input-checkbox", placeholder "theme", type_ "checkbox", onInput DeckTheme][ ]
-      ,input [class "input input-select", placeholder "budget", type_ "select", onInput DeckTheme][ ]
+      ,inputColors DeckTheme
+      ,inputText "budget class" DeckTheme
       ,inputText "worth" DeckTheme
       ,div [class "split-choice"][
         button [class "input half-width", onClick ( Navigate("home") ) ][ text ("Back") ]

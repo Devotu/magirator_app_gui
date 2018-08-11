@@ -96,3 +96,62 @@ button.input {
     justify-content: space-between;
     display: flex;
 }
+
+.color-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkbox-hidden {
+    display: none;
+}
+
+.input-checkbox {
+    width: 5vmin;
+    height: 5vmin;
+}
+
+.checkbox-color-label {
+    background-color: #fff;
+    width: 4vmin;
+    height: 4vmin;
+    margin: 0.5vmin;
+}
+
+.checkbox-black {
+    background-color: #000;
+}
+.checkbox-white {
+    background-color: #ff8;
+}
+.checkbox-red {
+    background-color: #f33;
+}
+.checkbox-green {
+    background-color: #0f0;
+}
+.checkbox-blue {
+    background-color: #00f;
+}
+.checkbox-colorless {
+    background-color: #666;
+}
+
+.checkbox-black input[type=checkbox]:checked + label {
+    background: #000;
+}
+.checkbox-white input[type=checkbox]:checked + label {
+    background: #ff8;
+}
+.checkbox-red input[type=checkbox]:checked + label {
+    background: #f33;
+}
+.checkbox-green input[type=checkbox]:checked + label {
+    background: #0f0;
+}
+.checkbox-blue input[type=checkbox]:checked + label {
+    background: #00f;
+}
+.checkbox-colorless input[type=checkbox]:checked + label {
+    background: #666;
+}
