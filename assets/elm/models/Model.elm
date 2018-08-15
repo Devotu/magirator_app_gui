@@ -1,17 +1,18 @@
 module Model exposing (..)
 
-import Navigation exposing (..)
-import ConnectionStatus exposing (..)
-import Deck exposing (..)
-
+import ConnectionStatus
+import Deck
+import Navigation
+import NewNewDeck
 
 type alias Model =
     { currentRoute : Navigation.Location
     , username : String
     , password : String
     , socketUrl : String
-    , socketStatus : ConnectionStatus
-    , channelStatus : ConnectionStatus
+    , socketStatus : ConnectionStatus.ConnectionStatus
+    , channelStatus : ConnectionStatus.ConnectionStatus
     , status : String
-    , deck : Deck
+    , deck : Deck.Deck
+    , newDeck : NewNewDeck.Model
     }

@@ -9,7 +9,6 @@ debugSquare model =
     div [class "dialog-large debug-box"][
                 div [][
                     p [][ text ("Status: " ++ model.status) ]
-                    ,p [][ text ("Socket: " ++ toString model.deck) ]
-                    -- , p [][ text ("Channel: " ++ toString model.channelStatus) ]
+                    ,p [][ text ("Socket: " ++ toString model.newDeck) ]
                 ]
             ]

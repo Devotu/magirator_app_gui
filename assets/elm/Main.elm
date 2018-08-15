@@ -1,14 +1,14 @@
 import Navigation
-
-import Model exposing (Model)
+import Model
 import Ms exposing (Msg)
 import Subscription exposing (subscriptions)
 import Update exposing (update)
 import View exposing (view)
 import ConnectionStatus exposing (..)
 import Deck exposing (..)
+import NewNewDeck
 
-main : Program Never Model Msg
+main : Program Never Model.Model Msg
 main =
     Navigation.program Ms.UrlChange
         { init = init
@@ -18,7 +18,7 @@ main =
         }
 
 
-init : Navigation.Location -> ( Model, Cmd Msg )
+init : Navigation.Location -> ( Model.Model, Cmd Msg )
 init location =
     { currentRoute = location
     , username = "x"
@@ -28,5 +28,6 @@ init location =
     , channelStatus = ConnectionStatus.NotConnected
     , status = "Init"
     , deck = emptyDeck
+    , newDeck = NewNewDeck.initialDeck
     }
     ! []

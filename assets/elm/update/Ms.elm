@@ -2,9 +2,9 @@ module Ms exposing (..)
 
 import Navigation
 import Json.Decode as JDC exposing (Decoder)
-import Json.Encode exposing (..)
 import Phoenix.Socket as Socket exposing (AbnormalClose)
 import Request exposing (..)
+import NewNewDeck
 
 type Msg
     = UrlChange Navigation.Location 
@@ -15,3 +15,4 @@ type Msg
     | Navigate String
     | Post Request
     | DeckName String | DeckTheme String | DeckFormat String
+    | NewDeckMsg NewNewDeck.DeckMsg

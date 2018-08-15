@@ -15,6 +15,7 @@ type alias Deck =
     , budget : Int
     }
 
+
 emptyDeck : Deck
 emptyDeck =
     {
@@ -30,7 +31,8 @@ emptyDeck =
         , colorless = False
         , budget = 0
         , worth = 0
-    }     
+    }
+
 
 formats : List String
 formats
