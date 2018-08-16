@@ -18,6 +18,6 @@ type AppMsg
 
 
 type DeckMsg
-    = Name String 
-    | Theme String 
-    | Format String
+    = Name String | Theme String | Format String
+    | ToggleBlack | ToggleWhite | ToggleRed | ToggleGreen | ToggleBlue | ToggleColorless
+    | Budget String | Worth String

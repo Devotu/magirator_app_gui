@@ -11,8 +11,8 @@ type alias Deck =
     , green : Bool
     , blue : Bool
     , colorless : Bool
-    , worth : Float
-    , budget : Int
+    , worth : String
+    , budget : String
     }
 
 
@@ -29,8 +29,8 @@ emptyDeck =
         , green = False
         , blue = False
         , colorless = False
-        , budget = 0
-        , worth = 0
+        , budget = "0"
+        , worth = "0"
     }
 
 
