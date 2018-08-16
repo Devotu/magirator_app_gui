@@ -13,6 +13,7 @@ type AppMsg
     | ChannelAppJoin | ChannelAppJoined JDC.Value | ChannelAppJoinError JDC.Value
     | Navigate String
     | Post Request
+    | PostAndNavigate NavRequest
     | NewDeckMsg DeckMsg
 
 

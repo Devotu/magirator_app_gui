@@ -21,8 +21,8 @@ main =
 init : Navigation.Location -> ( Model.Model, Cmd AppMsg )
 init location =
     { currentRoute = location
-    , username = "x"
-    , password = "y"
+    , username = "Adam"
+    , password = "Hemligt"
     , socketUrl = "ws://localhost:4000/socket/websocket"
     , socketStatus = ConnectionStatus.NotConnected
     , channelStatus = ConnectionStatus.NotConnected

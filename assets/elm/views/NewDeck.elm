@@ -7,6 +7,7 @@ import Html.Events exposing (onClick, onInput)
 import Html.Attributes exposing (class, placeholder, type_, for, id, value)
 import Msg exposing(AppMsg, DeckMsg)
 import Request
+import Navigation
 
 
 -- MODEL
@@ -131,7 +132,7 @@ view model =
             ,inputDeckVal "worth ($)" Msg.Worth
             ,div [class "split-choice"][
                 button [class "input half-width", onClick ( Msg.Navigate("home") ) ][ text ("Back") ]
-                ,button [class "input half-width", onClick ( Msg.Post (newDeck model) ) ][ text ("Create") ]
+                ,button [class "input half-width", onClick ( Msg.PostAndNavigate (newDeck model) ) ][ text ("Create") ]
             ]
             ]
         ]
@@ -171,7 +172,7 @@ stringToOption s =
 
 -- DATA TRANSFORM
 
-newDeck : Model -> Request.Request
+newDeck : Model -> Request.NavRequest
 newDeck model =
   let 
     deck = model.deck
@@ -191,4 +192,5 @@ newDeck model =
       , ("budget", float deck.budget)
       , ("worth", float deck.worth)
     ]
+    , path = "home"
   }
