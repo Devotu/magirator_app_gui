@@ -3,7 +3,7 @@ module Model exposing (..)
 import ConnectionStatus
 import Deck
 import Navigation
-import NewNewDeck
+import NewDeck
 
 type alias Model =
     { currentRoute : Navigation.Location
@@ -14,5 +14,5 @@ type alias Model =
     , channelStatus : ConnectionStatus.ConnectionStatus
     , status : String
     , deck : Deck.Deck
-    , newDeck : NewNewDeck.Model
+    , newDeck : NewDeck.Model
     }

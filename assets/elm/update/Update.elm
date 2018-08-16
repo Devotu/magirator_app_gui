@@ -7,7 +7,7 @@ import Msg exposing (..)
 import ConnectionStatus exposing (..)
 import Subscription exposing (..)
 import Updaters exposing (..)
-import NewNewDeck
+import NewDeck
 
 import Json.Encode as JE
 import Phoenix
@@ -69,6 +69,6 @@ update msg model =
         NewDeckMsg subMsg ->
             let
                 ( updatedNewDeck, deckCmd ) =
-                    NewNewDeck.update subMsg model.newDeck
+                    NewDeck.update subMsg model.newDeck
             in
                 ( { model | newDeck = updatedNewDeck } , Cmd.none )

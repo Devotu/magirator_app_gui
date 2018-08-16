@@ -7,17 +7,16 @@ import Model exposing (Model)
 
 import Home exposing (homePage)
 import Login exposing (loginPage)
-import NewDeck exposing (newDeckPage)
+import NewDeck exposing (view)
 import Error exposing (notFoundPage)
 import DebugSquare exposing (debugSquare)
-import NewNewDeck
+import NewDeck
 
 type RoutePath
     = DefaultRoute
     | HomeRoute
     | LoginRoute
     | NewDeckRoute
-    | NewDeckRoute2
     | NotFoundRoute
 
 
@@ -39,9 +38,6 @@ fromUrlHash urlHash =
 
             [ "newdeck" ] ->
                 NewDeckRoute
-
-            [ "newdeck2" ] ->
-                NewDeckRoute2
 
             _ ->
               NotFoundRoute
@@ -66,10 +62,7 @@ pageBody model =
                     loginPage model
 
                 NewDeckRoute ->
-                    newDeckPage model
-
-                NewDeckRoute2 ->
-                    NewNewDeck.view model.newDeck
+                    NewDeck.view model.newDeck
 
                 NotFoundRoute ->
                     notFoundPage model
