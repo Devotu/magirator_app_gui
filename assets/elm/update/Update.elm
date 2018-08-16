@@ -57,15 +57,6 @@ update msg model =
         in
             { model | status = "posting" } ! [ Phoenix.push model.socketUrl push ]
 
-        DeckName name ->
-            updateDeck (NewName name) model ! []
-
-        DeckTheme theme ->
-            updateDeck (NewTheme theme) model ! []
-
-        DeckFormat format ->
-            updateDeck (NewFormat format) model ! []
-
         NewDeckMsg subMsg ->
             let
                 ( updatedNewDeck, deckCmd ) =
