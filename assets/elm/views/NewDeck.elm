@@ -1,7 +1,7 @@
 module NewDeck exposing (..)
 
 import Deck
-import Json.Encode exposing (string)
+import Json.Encode exposing (bool, float, string)
 import Html exposing (Html, button, fieldset, input, div, text, select, label, h4, option)
 import Html.Events exposing (onClick, onInput)
 import Html.Attributes exposing (class, placeholder, type_, for, id, value)
@@ -181,5 +181,14 @@ newDeck model =
     , object = Json.Encode.object [
       ("name", string deck.name)
       , ("theme", string deck.theme)
+      , ("format", string deck.format)
+      , ("black", bool deck.black)
+      , ("white", bool deck.white)
+      , ("red", bool deck.red)
+      , ("green", bool deck.green)
+      , ("blue", bool deck.blue)
+      , ("colorless", bool deck.colorless)
+      , ("budget", float deck.budget)
+      , ("worth", float deck.worth)
     ]
   }
