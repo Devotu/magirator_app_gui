@@ -90,13 +90,13 @@ update message model =
         
             Msg.Budget val ->
                 let
-                    updatedDeck = { deck | budget = val }
+                    updatedDeck = { deck | budget = Result.withDefault 0 (String.toFloat val) }
                 in
                     setUpdated updatedDeck model
         
             Msg.Worth val ->
                 let
-                    updatedDeck = { deck | worth = val }
+                    updatedDeck = { deck | worth = Result.withDefault 0 (String.toFloat val) }
                 in
                     setUpdated updatedDeck model
 
@@ -127,8 +127,8 @@ view model =
                 ,inputDeckCheckbox "blue" Msg.ToggleBlue
                 ,inputDeckCheckbox "colorless" Msg.ToggleColorless
             ]
-            ,inputDeckText "budget class ($)" Msg.Budget
-            ,inputDeckText "worth ($)" Msg.Worth
+            ,inputDeckVal "budget class ($)" Msg.Budget
+            ,inputDeckVal "worth ($)" Msg.Worth
             ,div [class "split-choice"][
                 button [class "input half-width", onClick ( Msg.Navigate("home") ) ][ text ("Back") ]
                 ,button [class "input half-width", onClick ( Msg.Post (newDeck model) ) ][ text ("Create") ]
@@ -141,6 +141,12 @@ inputDeckText : String -> (String -> DeckMsg) -> Html AppMsg
 inputDeckText ph msg =
     Html.map Msg.NewDeckMsg( 
         input [class "input input-text", placeholder ph, type_ "text", onInput msg][ ] 
+    )
+
+inputDeckVal : String -> (String -> DeckMsg) -> Html AppMsg
+inputDeckVal ph msg =
+    Html.map Msg.NewDeckMsg( 
+        input [class "input input-val", placeholder ph, type_ "number", onInput msg][ ] 
     )
 
 inputDeckSelect : List String -> (String -> DeckMsg) -> Html AppMsg

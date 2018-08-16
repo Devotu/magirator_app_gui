@@ -64,6 +64,12 @@ header {
     border-bottom: black solid 1px;
 }
 
+.input-val {
+    border: none;
+    border-bottom: black solid 1px;
+    width: 87%;
+}
+
 button.input {
     border: black solid 1px;
     background-color: lightgrey;
