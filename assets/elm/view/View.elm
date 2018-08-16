@@ -2,7 +2,7 @@ module View exposing (..)
 
 import Html exposing (Html, div, text, p)
 import List exposing (..)
-import Ms exposing (Msg)
+import Msg exposing (AppMsg)
 import Model exposing (Model)
 
 import Home exposing (homePage)
@@ -10,7 +10,7 @@ import Login exposing (loginPage)
 import NewDeck exposing (newDeckPage)
 import Error exposing (notFoundPage)
 import DebugSquare exposing (debugSquare)
-import NewNewDeck exposing (DeckMsg(..), Model, view)
+import NewNewDeck
 
 type RoutePath
     = DefaultRoute
@@ -47,7 +47,7 @@ fromUrlHash urlHash =
               NotFoundRoute
 
 
-pageBody : Model.Model -> Html Msg
+pageBody : Model.Model -> Html AppMsg
 pageBody model =
     let
         routePath =
@@ -69,8 +69,7 @@ pageBody model =
                     newDeckPage model
 
                 NewDeckRoute2 ->
-                    -- notFoundPage model
-                    Html.map Ms.NewDeckMsg (NewNewDeck.view model.newDeck)
+                    NewNewDeck.view model.newDeck
 
                 NotFoundRoute ->
                     notFoundPage model
@@ -80,7 +79,7 @@ pageBody model =
 
 
 
-view : Model.Model -> Html Msg
+view : Model.Model -> Html AppMsg
 view model =
     div [ ][  
             debugSquare model

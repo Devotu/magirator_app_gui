@@ -6,9 +6,9 @@ import Phoenix.Channel as Channel
 
 import ConnectionStatus exposing (..)
 import Model exposing (..)
-import Ms exposing (..)
+import Msg exposing (..)
 
-socket : Model -> Socket.Socket Msg
+socket : Model -> Socket.Socket AppMsg
 socket model =
   Socket.init model.socketUrl
     |> Socket.withParams[ ("user", model.username), ("pwd", model.password) ]
@@ -19,7 +19,7 @@ appChannel : Model -> String
 appChannel model =
   "app:" ++ model.username
 
-channel : Model -> Channel.Channel Msg
+channel : Model -> Channel.Channel AppMsg
 channel model =
   Channel.init (appChannel model)
     |> Channel.on "new_msg" NewMsg
@@ -27,7 +27,7 @@ channel model =
     |> Channel.onJoinError ChannelAppJoinError
 
 
-subscriptions : Model -> Sub Msg
+subscriptions : Model -> Sub AppMsg
 subscriptions model =
   if
     model.channelStatus == Connecting || model.channelStatus == Connected 

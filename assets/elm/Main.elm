@@ -1,6 +1,6 @@
 import Navigation
 import Model
-import Ms exposing (Msg)
+import Msg exposing (..)
 import Subscription exposing (subscriptions)
 import Update exposing (update)
 import View exposing (view)
@@ -8,9 +8,9 @@ import ConnectionStatus exposing (..)
 import Deck exposing (..)
 import NewNewDeck
 
-main : Program Never Model.Model Msg
+main : Program Never Model.Model AppMsg
 main =
-    Navigation.program Ms.UrlChange
+    Navigation.program Msg.UrlChange
         { init = init
         , update = update
         , subscriptions = subscriptions
@@ -18,7 +18,7 @@ main =
         }
 
 
-init : Navigation.Location -> ( Model.Model, Cmd Msg )
+init : Navigation.Location -> ( Model.Model, Cmd AppMsg )
 init location =
     { currentRoute = location
     , username = "x"

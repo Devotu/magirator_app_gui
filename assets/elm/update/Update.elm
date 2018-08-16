@@ -3,7 +3,7 @@ module Update exposing (..)
 import Navigation exposing(..)
 
 import Model exposing (..)
-import Ms exposing (..)
+import Msg exposing (..)
 import ConnectionStatus exposing (..)
 import Subscription exposing (..)
 import Updaters exposing (..)
@@ -13,7 +13,7 @@ import Json.Encode as JE
 import Phoenix
 import Phoenix.Push as Push
 
-update : Msg -> Model -> ( Model, Cmd Msg )
+update : AppMsg -> Model -> ( Model, Cmd AppMsg )
 update msg model =
     case msg of
         UrlChange location ->

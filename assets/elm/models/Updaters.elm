@@ -1,9 +1,9 @@
 module Updaters exposing (..)
 
 import Model exposing (..)
-import Ms exposing (..)
+import Msg exposing (..)
 
-noCmd : Model -> ( Model, Cmd Msg )
+noCmd : Model -> ( Model, Cmd AppMsg )
 noCmd model =
     ( model, Cmd.none )
 

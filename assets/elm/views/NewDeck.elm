@@ -3,14 +3,14 @@ module NewDeck exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick, onInput)
-import Ms exposing (..)
+import Msg exposing (..)
 import Model exposing (Model)
 import Json.Encode exposing (..)
 import Request exposing (..)
 import Deck exposing (formats)
 import Input exposing (inputText, inputSelect, inputColors)
 
-newDeckPage : Model -> Html Msg
+newDeckPage : Model -> Html AppMsg
 newDeckPage model =
   div [class "mr-main flex-column flex-start"][
     h4 [][ text ("New Deck") ]

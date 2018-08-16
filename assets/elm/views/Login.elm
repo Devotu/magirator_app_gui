@@ -3,11 +3,11 @@ module Login exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick, onInput)
-import Ms exposing (..)
+import Msg exposing (..)
 import Model exposing (Model)
 
 
-loginPage : Model -> Html Msg
+loginPage : Model -> Html AppMsg
 loginPage model =
   div [class "mr-main flex-column flex-start"][
     div [class "dialog-large"][
@@ -26,7 +26,7 @@ loginPage model =
     ,viewEmpty "Password" model.password
   ]
 
-viewEmpty : String -> String -> Html Msg
+viewEmpty : String -> String -> Html AppMsg
 viewEmpty parameterName parameter = 
   if parameter == "" then
     div [class "feedback error"][
