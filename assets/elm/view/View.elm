@@ -8,13 +8,12 @@ import Model exposing (Model)
 
 import Home exposing (homePage)
 import Login exposing (loginPage)
-import NewDeck exposing (view)
 import Error exposing (notFoundPage)
 
 import DebugSquare exposing (debugSquare)
 
-import NewDeck
 import ConnectionStatus
+import NewDeck
 
 type RoutePath
     = DefaultRoute
@@ -53,7 +52,6 @@ pageBody model =
         routePath =
             fromUrlHash model.currentRoute.hash
     in
-        -- if 1 == 1 then
         if model.channelStatus == ConnectionStatus.Connected then
             case routePath of
                 DefaultRoute ->

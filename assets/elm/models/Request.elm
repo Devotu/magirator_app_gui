@@ -11,4 +11,5 @@ type alias NavRequest =
     { action : String
     ,object : Json.Encode.Value
     ,path : String
+    ,reset : String
     }

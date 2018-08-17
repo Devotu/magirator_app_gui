@@ -7,7 +7,6 @@ import Html.Events exposing (onClick, onInput)
 import Html.Attributes exposing (class, placeholder, type_, for, id, value)
 import Msg exposing(AppMsg, DeckMsg)
 import Request
-import Navigation
 
 
 -- MODEL
@@ -117,23 +116,23 @@ view model =
         div [class "mr-main flex-column flex-start"][
             h4 [][ text ("New Deck") ]
             ,div [class "dialog-large"][
-            inputDeckText "name" Msg.Name
-            ,inputDeckText "theme" Msg.Theme
-            ,inputDeckSelect Deck.formats Msg.Format
-            ,fieldset [class "color-box"][
-                inputDeckCheckbox "black" Msg.ToggleBlack
-                ,inputDeckCheckbox "white" Msg.ToggleWhite
-                ,inputDeckCheckbox "red" Msg.ToggleRed
-                ,inputDeckCheckbox "green" Msg.ToggleGreen
-                ,inputDeckCheckbox "blue" Msg.ToggleBlue
-                ,inputDeckCheckbox "colorless" Msg.ToggleColorless
-            ]
-            ,inputDeckVal "budget class ($)" Msg.Budget
-            ,inputDeckVal "worth ($)" Msg.Worth
-            ,div [class "split-choice"][
-                button [class "input half-width", onClick ( Msg.Navigate("home") ) ][ text ("Back") ]
-                ,button [class "input half-width", onClick ( Msg.PostAndNavigate (newDeck model) ) ][ text ("Create") ]
-            ]
+                inputDeckText "name" Msg.Name
+                ,inputDeckText "theme" Msg.Theme
+                ,inputDeckSelect Deck.formats Msg.Format
+                ,fieldset [class "color-box"][
+                    inputDeckCheckbox "black" Msg.ToggleBlack
+                    ,inputDeckCheckbox "white" Msg.ToggleWhite
+                    ,inputDeckCheckbox "red" Msg.ToggleRed
+                    ,inputDeckCheckbox "green" Msg.ToggleGreen
+                    ,inputDeckCheckbox "blue" Msg.ToggleBlue
+                    ,inputDeckCheckbox "colorless" Msg.ToggleColorless
+                ]
+                ,inputDeckVal "budget class ($)" Msg.Budget
+                ,inputDeckVal "worth ($)" Msg.Worth
+                ,div [class "split-choice"][
+                    button [class "input half-width", onClick ( Msg.Navigate("home") ) ][ text ("Back") ]
+                    ,button [class "input half-width", onClick ( Msg.PostAndNavigate (newDeck model) ) ][ text ("Create") ]
+                ]
             ]
         ]
 
@@ -193,4 +192,5 @@ newDeck model =
       , ("worth", float deck.worth)
     ]
     , path = "home"
+    , reset = "newDeck"
   }

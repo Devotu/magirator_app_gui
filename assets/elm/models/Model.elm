@@ -16,3 +16,19 @@ type alias Model =
     , deck : Deck.Deck
     , newDeck : NewDeck.Model
     }
+
+
+
+resetTargetInput : String -> Model -> Model
+resetTargetInput target model =
+    case target of
+        "newDeck" ->
+            resetNewDeck model
+    
+        _ ->
+            model
+
+
+resetNewDeck : Model -> Model
+resetNewDeck model =
+    { model | newDeck = NewDeck.initialDeck }

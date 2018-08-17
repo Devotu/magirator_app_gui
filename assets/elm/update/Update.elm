@@ -70,8 +70,11 @@ update msg model =
                 push = 
                     Push.init (appChannel model) request.action
                         |> Push.withPayload ( request.object )
+                
+                resetModel = Model.resetTargetInput request.reset model
+                        
             in
-                { model | status = "creating" } ! [ Phoenix.push model.socketUrl push, newUrl("/#/" ++ request.path) ]
+                { resetModel | status = "posting and navigating" } ! [ Phoenix.push model.socketUrl push, newUrl("/#/" ++ request.path) ]
 
 
         NewDeckMsg subMsg ->
