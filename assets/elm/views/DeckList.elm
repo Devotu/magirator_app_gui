@@ -23,7 +23,7 @@ page model =
                     text ("Back") 
                 ]
                 ,button [class "input", onClick (Msg.Navigate("newdeck")) ][
-                    text ("New Deck")
+                    text ("New")
                 ]
             ]
         ]
@@ -33,11 +33,11 @@ renderDeckList : List Deck.Deck -> Html msg
 renderDeckList decks =
     decks 
         |> List.map ( \deck -> listDeck deck )
-        |> ol []
+        |> ol [ class "deck-list" ]
 
 
 listDeck : Deck.Deck -> Html msg
 listDeck deck = 
-    li [][
+    li [ class "deck-list-item" ][
         text deck.name
     ]

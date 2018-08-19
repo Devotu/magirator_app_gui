@@ -160,3 +160,15 @@ button.input {
 .checkbox-colorless input[type=checkbox]:checked + label {
     background: #666;
 }
+
+
+.deck-list {
+    padding-left: 0;
+    list-style: none;
+}
+
+.deck-list-item {
+    margin: 5px;
+    padding: 1vmin;
+    border: lightgray solid 2px;
+}

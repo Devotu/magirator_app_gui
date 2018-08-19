@@ -127,7 +127,7 @@ view model =
                     ,inputDeckCheckbox "blue" Msg.ToggleBlue
                     ,inputDeckCheckbox "colorless" Msg.ToggleColorless
                 ]
-                ,inputDeckVal "budget class ($)" Msg.Budget
+                ,inputDeckVal "budget ($)" Msg.Budget
                 ,inputDeckVal "worth ($)" Msg.Worth
                 ,div [class "split-choice"][
                     button [class "input half-width", onClick ( Msg.Navigate("home") ) ][ text ("Back") ]
