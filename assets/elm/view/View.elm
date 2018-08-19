@@ -14,12 +14,14 @@ import DebugSquare exposing (debugSquare)
 
 import ConnectionStatus
 import NewDeck
+import DeckList
 
 type RoutePath
     = DefaultRoute
     | HomeRoute
     | LoginRoute
     | NewDeckRoute
+    | DeckListRoute
     | NotFoundRoute
 
 
@@ -41,6 +43,9 @@ fromUrlHash urlHash =
 
             [ "newdeck" ] ->
                 NewDeckRoute
+
+            [ "decklist" ] ->
+                DeckListRoute
 
             _ ->
               NotFoundRoute
@@ -65,6 +70,9 @@ pageBody model =
 
                 NewDeckRoute ->
                     NewDeck.view model.newDeck
+
+                DeckListRoute ->
+                    DeckList.page model
 
                 NotFoundRoute ->
                     notFoundPage model

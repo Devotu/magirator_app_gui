@@ -9,6 +9,7 @@ import Subscription exposing (..)
 import NewDeck
 import Phoenix
 import Phoenix.Push as Push
+import Json.Decode as Decode
 
 update : AppMsg -> Model -> ( Model, Cmd AppMsg )
 update msg model =
@@ -83,3 +84,15 @@ update msg model =
                     NewDeck.update subMsg model.newDeck
             in
                 ( { model | newDeck = updatedNewDeck } , Cmd.none )
+
+            
+        DataUpdate payload -> 
+            let
+                parsedPayloadResult = Decode.decodeValue Subscription.dataParser payload
+            in
+                case parsedPayloadResult of
+                    Ok json ->
+                        Subscription.replaceWithFetched json model ! []
+                
+                    Err error ->
+                        { model | status = toString error } ! []

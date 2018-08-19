@@ -29,5 +29,6 @@ init location =
     , status = "Init"
     , deck = emptyDeck
     , newDeck = NewDeck.initialDeck
+    , deckList = []
     }
     ! []

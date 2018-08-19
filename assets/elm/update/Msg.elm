@@ -7,7 +7,7 @@ import Request exposing (..)
 
 type AppMsg
     = UrlChange Navigation.Location 
-    | NewMsg JDC.Value 
+    | NewMsg JDC.Value | DataUpdate JDC.Value 
     | Password String | Username String 
     | SocketConnected | SocketDenied AbnormalClose
     | ChannelAppJoin | ChannelAppJoined JDC.Value | ChannelAppJoinError JDC.Value

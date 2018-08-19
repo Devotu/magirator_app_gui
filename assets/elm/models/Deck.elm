@@ -1,18 +1,22 @@
 module Deck exposing (..)
 
+import Json.Decode as Decode
+import Json.Decode.Pipeline exposing (decode, required, optional)
+
 type alias Deck =
-    { id : Int
-    , name : String
-    , theme : String
-    , format : String
-    , black : Bool
-    , white : Bool
-    , red : Bool
-    , green : Bool
-    , blue : Bool
-    , colorless : Bool
-    , worth : Float
-    , budget : Float
+    { 
+        id : Int
+        , name : String
+        , theme : String
+        , format : String
+        , black : Bool
+        , white : Bool
+        , red : Bool
+        , green : Bool
+        , blue : Bool
+        , colorless : Bool
+        , worth : Float
+        , budget : Float
     }
 
 
@@ -37,3 +41,20 @@ emptyDeck =
 formats : List String
 formats
     = ["None", "Standard", "Modern"]
+
+
+deckDecoder : Decode.Decoder Deck
+deckDecoder =
+    decode Deck
+        |> required "id" Decode.int
+        |> required "name" Decode.string
+        |> required "theme" Decode.string
+        |> required "format" Decode.string
+        |> required "black" Decode.bool
+        |> required "white" Decode.bool
+        |> required "red" Decode.bool
+        |> required "green" Decode.bool
+        |> required "blue" Decode.bool
+        |> required "colorless" Decode.bool
+        |> optional "budget" Decode.float 0
+        |> optional "worth" Decode.float 0

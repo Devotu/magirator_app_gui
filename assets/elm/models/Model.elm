@@ -15,8 +15,8 @@ type alias Model =
     , status : String
     , deck : Deck.Deck
     , newDeck : NewDeck.Model
+    , deckList : List Deck.Deck
     }
-
 
 
 resetTargetInput : String -> Model -> Model
