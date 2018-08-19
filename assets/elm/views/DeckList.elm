@@ -29,15 +29,18 @@ page model =
         ]
     ]
 
-renderDeckList : List Deck.Deck -> Html msg
+renderDeckList : List Deck.Deck -> Html AppMsg
 renderDeckList decks =
     decks 
         |> List.map ( \deck -> listDeck deck )
         |> ol [ class "deck-list" ]
 
 
-listDeck : Deck.Deck -> Html msg
+listDeck : Deck.Deck -> Html AppMsg
 listDeck deck = 
-    li [ class "deck-list-item" ][
-        text deck.name
-    ]
+    let
+        path = "deck/" ++ (toString deck.id)
+    in        
+        li [ class "deck-list-item", onClick( Msg.Navigate(path) ) ][
+            text deck.name
+        ]
