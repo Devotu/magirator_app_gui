@@ -15,8 +15,8 @@ type alias Deck =
         , green : Bool
         , blue : Bool
         , colorless : Bool
-        , worth : Float
         , budget : Float
+        , worth : Float
     }
 
 

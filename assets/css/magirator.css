@@ -172,3 +172,58 @@ button.input {
     padding: 1vmin;
     border: lightgray solid 2px;
 }
+
+.mana-box.used {
+    width: 5vmin;
+    height: 5vmin;
+    border: darkslategray solid 1px;
+    border-radius: 1px; 
+}
+
+.mana-box.dim {
+    background-color: #fff;
+    width: 4vmin;
+    height: 4vmin;
+    margin: 0.5vmin;
+}
+
+
+.black {
+    background-color: #000;
+}
+.white {
+    background-color: #ff8;
+}
+.red {
+    background-color: #f33;
+}
+.green {
+    background-color: #0f0;
+}
+.blue {
+    background-color: #00f;
+}
+.colorless {
+    background-color: #666;
+}
+
+.black.dim {
+    background-color: #888;
+}
+.white.dim {
+    background-color: #ff8;
+}
+.red.dim {
+    background-color: #f99;
+}
+.green.dim {
+    background-color: #8f8;
+}
+.blue.dim {
+    background-color: #88f;
+}
+.colorless.dim {
+    background-color: #bbb;
+}
+
+
