@@ -24,6 +24,7 @@ type RoutePath
     | NewDeckRoute
     | DeckListRoute
     | DeckRoute String
+    | DeckTab String String
     | NotFoundRoute
 
 
@@ -48,6 +49,9 @@ fromUrlHash urlHash =
 
             [ "decklist" ] ->
                 DeckListRoute
+
+            [ "deck", id, page ] ->
+                DeckTab id page
 
             [ "deck", id ] ->
                 DeckRoute id
@@ -79,13 +83,21 @@ pageBody model =
                 DeckListRoute ->
                     DeckList.page model
 
+                DeckTab id page ->
+                    case String.toInt id of
+                        Ok deckId ->
+                            DeckMain.page deckId model
+                    
+                        Err error ->
+                            DeckMain.page 0 model
+
                 DeckRoute id ->
                     case String.toInt id of
                         Ok deckId ->
                             DeckMain.page deckId model
                     
                         Err error ->
-                                DeckMain.page 0 model
+                            DeckMain.page 0 model
                             
                 NotFoundRoute ->
                     notFoundPage model

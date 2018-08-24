@@ -1,15 +1,19 @@
 * {
     font-family: "Lucida Console", Monaco, monospace;
     color: #333;
+    margin: 0;
+}
+
+[role=main]{
+    height: 88vh;
 }
 
 .mr-main {
-    height: 90vh;
     justify-content: center;
 }
 
 header {
-    height: 10vh;
+    height: 7vh;
 }
 
 .flex-column {
@@ -21,6 +25,14 @@ header {
 .flex-row {
     display: flex;
     justify-content: center;
+}
+
+
+.split-choice {
+    flex-direction: row;
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .dialog-large {
@@ -76,7 +88,8 @@ button.input {
 }
 
 .title {
-    font-size: 3em;
+    font-size: 5vh;
+    margin: 0;
 }
 
 .feedback {
