@@ -12,6 +12,7 @@ import Json.Decode as Decode
 import Json.Decode.Pipeline exposing (required, decode)
 
 import Deck
+import GameResultSet
 
 socket : Model -> Socket.Socket AppMsg
 socket model =
@@ -61,11 +62,22 @@ replaceWithFetched content model =
     case content.description of
         "deck:list" ->
             let
-                deckResult = Decode.decodeValue (Decode.list Deck.deckDecoder) content.data
+                deckResult = Decode.decodeValue (Decode.list Deck.decoder) content.data
             in
                 case deckResult of
                   Ok decks ->
                     { model | deckList = decks }
+                  Err error ->
+                    { model | status = error }
+
+
+        "deck:games" ->
+            let
+                gamesResult = Decode.decodeValue (Decode.list GameResultSet.decoder) content.data
+            in
+                case gamesResult of
+                  Ok gameResults ->
+                    { model | gameList = gameResults }
                   Err error ->
                     { model | status = error }
     

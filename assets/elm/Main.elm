@@ -30,5 +30,6 @@ init location =
     , deck = emptyDeck
     , newDeck = NewDeck.initialDeck
     , deckList = []
+    , gameList = []
     }
     ! []

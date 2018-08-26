@@ -5,7 +5,7 @@ import Error
 import Html exposing (Html, button, div, fieldset, h4, span, text)
 import Html.Attributes exposing (class)
 import Html.Events exposing (onClick)
-import Json.Encode
+import Json.Encode exposing (int)
 import Model exposing (Model)
 import Msg exposing (AppMsg)
 import Request
@@ -96,12 +96,14 @@ deckInfoView deck =
 
 gamesListRequest : Int -> Request.NavRequest
 gamesListRequest id =
-  {
-    action = "deck:games"
-    , object = Json.Encode.object []
-    , path = "deck/" ++ toString id ++ "/games"
-    , reset = ""
-  }
+    {
+        action = "deck:games"
+        , object = Json.Encode.object [
+           ("deck_id", int id)
+        ]
+        , path = "deck/" ++ toString id ++ "/games"
+        , reset = ""
+    }
 
 deckText : String -> String -> Html none
 deckText title info =

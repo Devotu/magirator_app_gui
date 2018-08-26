@@ -3,9 +3,11 @@ module DeckList exposing (..)
 import Html exposing (Html, button, div, h4, li, ol, text)
 import Html.Attributes exposing (class)
 import Html.Events exposing (onClick)
+import Json.Encode exposing (int)
 import Model exposing (Model)
 import Msg exposing (AppMsg)
 import Deck
+import Request
 
 
 page : Model -> Html AppMsg
@@ -15,8 +17,6 @@ page model =
         ,div [class "dialog-large"][
             div [class "list"][
                 renderDeckList model.deckList
-                -- ol [][text "test1"]
-                -- ,ol [][text "test2"]
             ]
             ,div [class "split-choice"][
                 button [class "input half-width", onClick ( Msg.Navigate("home") ) ][ 
@@ -40,7 +40,8 @@ listDeck : Deck.Deck -> Html AppMsg
 listDeck deck = 
     let
         path = "deck/" ++ (toString deck.id)
-    in        
-        li [ class "deck-list-item", onClick( Msg.Navigate(path) ) ][
-            text deck.name
-        ]
+    in
+    
+    li [ class "deck-list-item", onClick (Msg.Navigate path) ][
+        text deck.name
+    ]

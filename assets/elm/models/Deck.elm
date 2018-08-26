@@ -43,8 +43,8 @@ formats
     = ["None", "Standard", "Modern"]
 
 
-deckDecoder : Decode.Decoder Deck
-deckDecoder =
+decoder : Decode.Decoder Deck
+decoder =
     decode Deck
         |> required "id" Decode.int
         |> required "name" Decode.string

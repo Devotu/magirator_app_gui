@@ -4,6 +4,7 @@ import ConnectionStatus
 import Deck
 import Navigation
 import NewDeck
+import GameResultSet
 
 type alias Model =
     { currentRoute : Navigation.Location
@@ -16,6 +17,7 @@ type alias Model =
     , deck : Deck.Deck
     , newDeck : NewDeck.Model
     , deckList : List Deck.Deck
+    , gameList : List GameResultSet.GameResultSet
     }
 
 
