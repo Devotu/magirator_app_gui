@@ -86,18 +86,18 @@ pageBody model =
                 DeckTab id page ->
                     case String.toInt id of
                         Ok deckId ->
-                            DeckMain.page deckId model
+                            DeckMain.page deckId model page
                     
                         Err error ->
-                            DeckMain.page 0 model
+                            DeckMain.page 0 model page
 
                 DeckRoute id ->
                     case String.toInt id of
                         Ok deckId ->
-                            DeckMain.page deckId model
+                            DeckMain.page deckId model "info"
                     
                         Err error ->
-                            DeckMain.page 0 model
+                            DeckMain.page 0 model "info"
                             
                 NotFoundRoute ->
                     notFoundPage model
