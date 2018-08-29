@@ -43,14 +43,10 @@ page deckId model page =
     
 
 
-
-
-
-
 deckView : Deck.Deck -> Html AppMsg -> Html AppMsg
 deckView deck tabContent =
      div [class "mr-main flex-column flex-start"][
-        h4 [][ text ("New Deck") ]
+        h4 [][ text (deck.name) ]
         , tabContent        
         ,div [class "dialog-large split-choice"][
             button [class "input", onClick (Msg.Navigate("deck/" ++ toString deck.id )) ][
@@ -100,9 +96,12 @@ gamesView games =
 
 renderGameList : List GameResultSet.GameResultSet -> Html AppMsg
 renderGameList games =
-    games 
-        |> List.map ( \game -> listGame game )
-        |> ol [ class "deck-list" ]
+    if List.isEmpty games then
+        text "No games played"
+    else 
+        games 
+            |> List.map ( \game -> listGame game )
+            |> ol [ class "deck-list" ]
 
 
 listGame : GameResultSet.GameResultSet -> Html AppMsg
