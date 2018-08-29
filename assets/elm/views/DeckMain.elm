@@ -31,7 +31,7 @@ page deckId model page =
                             let
                                 games =
                                     model.gameList
-                                    |> List.filter (\game -> game.deck.id == deckId)
+                                        |> List.filter (\game -> game.deck.id == deckId)
                             in
                                 deckView deck (gamesView games)
 

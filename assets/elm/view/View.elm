@@ -16,12 +16,14 @@ import ConnectionStatus
 import NewDeck
 import DeckList
 import DeckMain
+import GameView
 
 type RoutePath
     = DefaultRoute
     | HomeRoute
     | LoginRoute
     | NewDeckRoute
+    | GameRoute String
     | DeckListRoute
     | DeckRoute String
     | DeckTab String String
@@ -46,6 +48,9 @@ fromUrlHash urlHash =
 
             [ "newdeck" ] ->
                 NewDeckRoute
+
+            [ "game", id ] ->
+                GameRoute id
 
             [ "decklist" ] ->
                 DeckListRoute
@@ -79,6 +84,15 @@ pageBody model =
 
                 NewDeckRoute ->
                     NewDeck.view model.newDeck
+
+                GameRoute gameId ->
+                    case String.toInt gameId of
+                        Ok id ->
+                            GameView.page model id
+                    
+                        Err msg->
+                            notFoundPage model
+                            
 
                 DeckListRoute ->
                     DeckList.page model
