@@ -1,4 +1,4 @@
-module Home exposing (..)
+module HomeView exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
@@ -8,8 +8,8 @@ import Msg exposing (..)
 import Model exposing (Model)
 import Request
 
-homePage : Model -> Html AppMsg
-homePage model =
+page : Model -> Html AppMsg
+page model =
   div [class "mr-main flex-column flex-start"][
     h4 [][ text ("Home") ]
     ,div [class "dialog-large"][

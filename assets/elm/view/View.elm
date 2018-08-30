@@ -2,20 +2,19 @@ module View exposing (..)
 
 import Html exposing (Html, div, text, p)
 import List exposing (..)
+
 import Msg exposing (AppMsg)
 import Model exposing (Model)
-
-
-import Home exposing (homePage)
-import Login exposing (loginPage)
-import Error exposing (notFoundPage)
+import ConnectionStatus
 
 import DebugSquare exposing (debugSquare)
 
-import ConnectionStatus
-import NewDeck
-import DeckList
-import DeckMain
+import HomeView
+import LoginView
+import ErrorView
+import NewDeckView
+import DeckListView
+import DeckView
 import GameView
 
 type RoutePath
@@ -74,16 +73,16 @@ pageBody model =
         if model.channelStatus == ConnectionStatus.Connected then
             case routePath of
                 DefaultRoute ->
-                    homePage model
+                    HomeView.page model
 
                 HomeRoute ->
-                    homePage model
+                    HomeView.page model
 
                 LoginRoute ->
-                    loginPage model
+                    LoginView.page model
 
                 NewDeckRoute ->
-                    NewDeck.view model.newDeck
+                    NewDeckView.page model.newDeck
 
                 GameRoute gameId ->
                     case String.toInt gameId of
@@ -91,33 +90,33 @@ pageBody model =
                             GameView.page model id
                     
                         Err msg->
-                            notFoundPage model
+                            ErrorView.notFoundPage model
                             
 
                 DeckListRoute ->
-                    DeckList.page model
+                    DeckListView.page model
 
                 DeckTab id page ->
                     case String.toInt id of
                         Ok deckId ->
-                            DeckMain.page deckId model page
+                            DeckView.page deckId model page
                     
                         Err error ->
-                            DeckMain.page 0 model page
+                            DeckView.page 0 model page
 
                 DeckRoute id ->
                     case String.toInt id of
                         Ok deckId ->
-                            DeckMain.page deckId model "info"
+                            DeckView.page deckId model "info"
                     
                         Err error ->
-                            DeckMain.page 0 model "info"
+                            DeckView.page 0 model "info"
                             
                 NotFoundRoute ->
-                    notFoundPage model
+                    ErrorView.notFoundPage model
         
         else
-            loginPage model
+            LoginView.page model
 
 
 

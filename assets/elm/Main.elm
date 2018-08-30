@@ -6,7 +6,7 @@ import Update exposing (update)
 import View exposing (view)
 import ConnectionStatus exposing (..)
 import Deck exposing (..)
-import NewDeck
+import NewDeckView
 
 main : Program Never Model.Model AppMsg
 main =
@@ -28,7 +28,7 @@ init location =
     , channelStatus = ConnectionStatus.NotConnected
     , status = "Init"
     , deck = emptyDeck
-    , newDeck = NewDeck.initialDeck
+    , newDeck = NewDeckView.initialDeck
     , deckList = []
     , gameList = []
     }

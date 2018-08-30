@@ -1,4 +1,4 @@
-module NewDeck exposing (..)
+module NewDeckView exposing (..)
 
 import Deck
 import Json.Encode exposing (bool, float, string)
@@ -108,8 +108,8 @@ setUpdated deck model =
 
 -- VIEW 
 
-view : Model -> Html AppMsg
-view model =
+page : Model -> Html AppMsg
+page model =
     let
         deck = model.deck
     in

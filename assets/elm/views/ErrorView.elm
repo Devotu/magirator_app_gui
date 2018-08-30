@@ -1,4 +1,4 @@
-module Error exposing (..)
+module ErrorView exposing (..)
 
 import Html exposing (..)
 import Msg exposing (..)

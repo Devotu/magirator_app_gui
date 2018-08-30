@@ -1,4 +1,4 @@
-module Login exposing (..)
+module LoginView exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
@@ -7,8 +7,8 @@ import Msg exposing (..)
 import Model exposing (Model)
 
 
-loginPage : Model -> Html AppMsg
-loginPage model =
+page : Model -> Html AppMsg
+page model =
   div [class "mr-main flex-column flex-start"][
     div [class "dialog-large"][
       div [class "flex-end"][

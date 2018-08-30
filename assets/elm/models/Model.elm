@@ -3,7 +3,7 @@ module Model exposing (..)
 import ConnectionStatus
 import Deck
 import Navigation
-import NewDeck
+import NewDeckView
 import GameResultSet
 
 type alias Model =
@@ -15,7 +15,7 @@ type alias Model =
     , channelStatus : ConnectionStatus.ConnectionStatus
     , status : String
     , deck : Deck.Deck
-    , newDeck : NewDeck.Model
+    , newDeck : NewDeckView.Model
     , deckList : List Deck.Deck
     , gameList : List GameResultSet.GameResultSet
     }
@@ -33,4 +33,4 @@ resetTargetInput target model =
 
 resetNewDeck : Model -> Model
 resetNewDeck model =
-    { model | newDeck = NewDeck.initialDeck }
+    { model | newDeck = NewDeckView.initialDeck }

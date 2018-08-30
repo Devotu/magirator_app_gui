@@ -1,7 +1,7 @@
-module DeckMain exposing (..)
+module DeckView exposing (..)
 
 import Deck
-import Error
+import ErrorView
 import GameResultSet
 import Html exposing (Html, button, div, fieldset, h4, li, ol, span, text)
 import Html.Attributes exposing (class)
@@ -36,10 +36,10 @@ page deckId model page =
                                 deckView deck (gamesView games)
 
                         _ -> 
-                            Error.notFoundPage model
+                            ErrorView.notFoundPage model
 
             Nothing ->
-                Error.notFoundPage model
+                ErrorView.notFoundPage model
     
 
 

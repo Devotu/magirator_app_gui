@@ -1,4 +1,4 @@
-module DeckList exposing (..)
+module DeckListView exposing (..)
 
 import Html exposing (Html, button, div, h4, li, ol, text)
 import Html.Attributes exposing (class)

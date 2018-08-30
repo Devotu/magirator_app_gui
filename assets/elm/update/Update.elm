@@ -6,7 +6,7 @@ import Model exposing (..)
 import Msg exposing (..)
 import ConnectionStatus exposing (..)
 import Subscription exposing (..)
-import NewDeck
+import NewDeckView
 import Phoenix
 import Phoenix.Push as Push
 import Json.Decode as Decode
@@ -81,7 +81,7 @@ update msg model =
         NewDeckMsg subMsg ->
             let
                 ( updatedNewDeck, deckCmd ) =
-                    NewDeck.update subMsg model.newDeck
+                    NewDeckView.update subMsg model.newDeck
             in
                 ( { model | newDeck = updatedNewDeck } , Cmd.none )
 
