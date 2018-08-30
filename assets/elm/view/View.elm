@@ -11,11 +11,12 @@ import DebugSquare exposing (debugSquare)
 
 import HomeView
 import LoginView
-import ErrorView
 import NewDeckView
 import DeckListView
 import DeckView
 import GameView
+import AddGameView
+import ErrorView
 
 type RoutePath
     = DefaultRoute
@@ -25,7 +26,8 @@ type RoutePath
     | GameRoute String
     | DeckListRoute
     | DeckRoute String
-    | DeckTab String String
+    | DeckTabRoute String String
+    | AddGameRoute String
     | NotFoundRoute
 
 
@@ -55,11 +57,13 @@ fromUrlHash urlHash =
                 DeckListRoute
 
             [ "deck", id, page ] ->
-                DeckTab id page
+                DeckTabRoute id page
 
             [ "deck", id ] ->
                 DeckRoute id
 
+            [ "addgame", deckId ] ->
+                AddGameRoute deckId
             _ ->
               NotFoundRoute
 
@@ -96,7 +100,7 @@ pageBody model =
                 DeckListRoute ->
                     DeckListView.page model
 
-                DeckTab id page ->
+                DeckTabRoute id page ->
                     case String.toInt id of
                         Ok deckId ->
                             DeckView.page deckId model page
@@ -111,6 +115,14 @@ pageBody model =
                     
                         Err error ->
                             DeckView.page 0 model "info"
+
+                AddGameRoute id ->
+                    case String.toInt id of
+                        Ok deckId ->
+                            AddGameView.page model deckId
+                    
+                        Err error ->
+                            AddGameView.page model 0
                             
                 NotFoundRoute ->
                     ErrorView.notFoundPage model

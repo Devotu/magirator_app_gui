@@ -55,8 +55,8 @@ deckView deck tabContent =
             ,button [class "input", onClick (Msg.PostAndNavigate (gamesListRequest deck.id)) ][
             text ("Games")
             ]
-            ,button [class "input", onClick (Msg.Navigate("deck/" ++ toString deck.id ++ "/stats")) ][
-            text ("Stats")
+            ,button [class "input", onClick (Msg.Navigate("addgame/" ++ toString deck.id)) ][
+            text ("+Game")
             ]
         ]
         ,div [class "dialog-large split-choice"][
