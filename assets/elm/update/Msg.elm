@@ -26,3 +26,4 @@ type DeckMsg
 
 type RegisterMsg
     = Comment String
+    | PlayerSearchName String

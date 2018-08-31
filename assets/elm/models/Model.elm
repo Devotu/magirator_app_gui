@@ -6,6 +6,7 @@ import Navigation
 import NewDeckView
 import GameResultSet
 import RegisterGameView
+import Player
 
 type alias Model =
     { channelStatus : ConnectionStatus.ConnectionStatus
@@ -13,7 +14,7 @@ type alias Model =
     , deck : Deck.Deck
     , deckList : List Deck.Deck
     , gameList : List GameResultSet.GameResultSet
-    , gameRegisterList : RegisterGameView.RegisterModel
+    , gameRegisterModel : RegisterGameView.RegisterModel
     , newDeck : NewDeckView.DeckModel
     , password : String
     , socketStatus : ConnectionStatus.ConnectionStatus

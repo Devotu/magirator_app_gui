@@ -13,6 +13,8 @@ import Json.Decode.Pipeline exposing (required, decode)
 
 import Deck
 import GameResultSet
+import RegisterGameView exposing (RegisterModel)
+import Player
 
 socket : Model -> Socket.Socket AppMsg
 socket model =
@@ -80,6 +82,23 @@ replaceWithFetched content model =
                     { model | gameList = gameResults }
                   Err error ->
                     { model | status = error }
+
+
+        "player:search" ->
+            let
+                players = Decode.decodeValue (Decode.list Player.decoder) content.data
+                registerModel = model.gameRegisterModel
+            in
+                case players of
+                    Ok players ->
+                      { model | gameRegisterModel = insertSearchedPlayers model.gameRegisterModel players }
+                    Err error ->
+                      { model | status = error }
     
         _ ->
-            model
+          { model | status = "replaceWithFetched not found" }
+
+
+insertSearchedPlayers : RegisterModel -> List Player.Player -> RegisterModel
+insertSearchedPlayers registerModel players =
+  { registerModel | playerSearchList = players }

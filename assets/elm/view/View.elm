@@ -132,10 +132,10 @@ pageBody model =
                 AddRegisterRoute id ->
                     case String.toInt id of
                         Ok deckId ->
-                            RegisterGameView.page model.gameRegisterList deckId
+                            RegisterGameView.page model.gameRegisterModel deckId
                     
                         Err error ->
-                            RegisterGameView.page model.gameRegisterList 0
+                            RegisterGameView.page model.gameRegisterModel 0
                             
                 NotFoundRoute ->
                     ErrorView.notFoundPage model

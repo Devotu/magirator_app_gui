@@ -14,6 +14,7 @@ inputSelect : List String -> (String -> AppMsg) -> Html AppMsg
 inputSelect list msg =
     select [ onInput msg ] (List.map stringToOption list)
 
+
 inputColors : (String -> AppMsg) -> Html AppMsg
 inputColors msg = 
     fieldset [class "color-box"][

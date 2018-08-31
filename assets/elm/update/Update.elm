@@ -91,9 +91,9 @@ update msg model =
         RegisterMsg subMsg ->
             let
                 ( updatedRegisterList, registerCmd ) =
-                    RegisterGameView.update subMsg model.gameRegisterList
+                    RegisterGameView.update subMsg model.gameRegisterModel
             in
-                ( { model | gameRegisterList = updatedRegisterList } , Cmd.none )
+                ( { model | gameRegisterModel = updatedRegisterList } , Cmd.none )
 
             
         DataUpdate payload -> 
