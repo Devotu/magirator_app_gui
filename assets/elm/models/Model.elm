@@ -5,19 +5,21 @@ import Deck
 import Navigation
 import NewDeckView
 import GameResultSet
+import RegisterGameView
 
 type alias Model =
-    { currentRoute : Navigation.Location
-    , username : String
-    , password : String
-    , socketUrl : String
-    , socketStatus : ConnectionStatus.ConnectionStatus
-    , channelStatus : ConnectionStatus.ConnectionStatus
-    , status : String
+    { channelStatus : ConnectionStatus.ConnectionStatus
+    , currentRoute : Navigation.Location
     , deck : Deck.Deck
-    , newDeck : NewDeckView.Model
     , deckList : List Deck.Deck
     , gameList : List GameResultSet.GameResultSet
+    , gameRegisterList : RegisterGameView.RegisterModel
+    , newDeck : NewDeckView.DeckModel
+    , password : String
+    , socketStatus : ConnectionStatus.ConnectionStatus
+    , socketUrl : String
+    , status : String
+    , username : String
     }
 
 
@@ -33,4 +35,5 @@ resetTargetInput target model =
 
 resetNewDeck : Model -> Model
 resetNewDeck model =
-    { model | newDeck = NewDeckView.initialDeck }
+    { model | newDeck = NewDeckView.initialModel }
+

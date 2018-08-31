@@ -16,6 +16,7 @@ import DeckListView
 import DeckView
 import GameView
 import AddGameView
+import RegisterGameView
 import ErrorView
 
 type RoutePath
@@ -28,6 +29,7 @@ type RoutePath
     | DeckRoute String
     | DeckTabRoute String String
     | AddGameRoute String
+    | AddRegisterRoute String
     | NotFoundRoute
 
 
@@ -64,6 +66,9 @@ fromUrlHash urlHash =
 
             [ "addgame", deckId ] ->
                 AddGameRoute deckId
+
+            [ "addregister", deckId ] ->
+                AddRegisterRoute deckId
             _ ->
               NotFoundRoute
 
@@ -123,6 +128,14 @@ pageBody model =
                     
                         Err error ->
                             AddGameView.page model 0
+
+                AddRegisterRoute id ->
+                    case String.toInt id of
+                        Ok deckId ->
+                            RegisterGameView.page model.gameRegisterList deckId
+                    
+                        Err error ->
+                            RegisterGameView.page model.gameRegisterList 0
                             
                 NotFoundRoute ->
                     ErrorView.notFoundPage model

@@ -13,7 +13,7 @@ page model deckId =
   div [class "mr-main flex-column flex-start"][
     h4 [][ text ("Add Game") ]
     ,div [class "dialog-large"][
-        button [class "input", onClick (Navigate("addregister")) ][
+        button [class "input", onClick (Navigate("addregister/" ++ (toString deckId))) ][
           text ("Register")
         ]
         ,button [class "input", onClick (Navigate("addrecord")) ][

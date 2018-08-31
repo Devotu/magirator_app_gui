@@ -6,10 +6,12 @@ import Model exposing (..)
 import Msg exposing (..)
 import ConnectionStatus exposing (..)
 import Subscription exposing (..)
-import NewDeckView
 import Phoenix
 import Phoenix.Push as Push
 import Json.Decode as Decode
+
+import NewDeckView
+import RegisterGameView
 
 update : AppMsg -> Model -> ( Model, Cmd AppMsg )
 update msg model =
@@ -84,6 +86,14 @@ update msg model =
                     NewDeckView.update subMsg model.newDeck
             in
                 ( { model | newDeck = updatedNewDeck } , Cmd.none )
+
+
+        RegisterMsg subMsg ->
+            let
+                ( updatedRegisterList, registerCmd ) =
+                    RegisterGameView.update subMsg model.gameRegisterList
+            in
+                ( { model | gameRegisterList = updatedRegisterList } , Cmd.none )
 
             
         DataUpdate payload -> 

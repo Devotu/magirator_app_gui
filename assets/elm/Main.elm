@@ -7,6 +7,7 @@ import View exposing (view)
 import ConnectionStatus exposing (..)
 import Deck exposing (..)
 import NewDeckView
+import RegisterGameView
 
 main : Program Never Model.Model AppMsg
 main =
@@ -20,16 +21,17 @@ main =
 
 init : Navigation.Location -> ( Model.Model, Cmd AppMsg )
 init location =
-    { currentRoute = location
-    , username = "Adam"
-    , password = "Hemligt"
-    , socketUrl = "ws://localhost:4000/socket/websocket"
-    , socketStatus = ConnectionStatus.NotConnected
-    , channelStatus = ConnectionStatus.NotConnected
-    , status = "Init"
+    { channelStatus = ConnectionStatus.NotConnected
+    , currentRoute = location
     , deck = emptyDeck
-    , newDeck = NewDeckView.initialDeck
     , deckList = []
     , gameList = []
+    , gameRegisterList = RegisterGameView.initialModel
+    , newDeck = NewDeckView.initialModel
+    , password = "Hemligt"
+    , socketStatus = ConnectionStatus.NotConnected
+    , socketUrl = "ws://localhost:4000/socket/websocket"
+    , status = "Init"
+    , username = "Adam"
     }
     ! []

@@ -15,9 +15,14 @@ type AppMsg
     | Post Request
     | PostAndNavigate NavRequest
     | NewDeckMsg DeckMsg
+    | RegisterMsg RegisterMsg
 
 
 type DeckMsg
     = Name String | Theme String | Format String
     | ToggleBlack | ToggleWhite | ToggleRed | ToggleGreen | ToggleBlue | ToggleColorless
     | Budget String | Worth String
+
+
+type RegisterMsg
+    = Comment String

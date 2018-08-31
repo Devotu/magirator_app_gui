@@ -11,13 +11,13 @@ import Request
 
 -- MODEL
 
-type alias Model =
+type alias DeckModel =
     { deck : Deck.Deck
     }
 
 
-initialDeck : Model
-initialDeck =
+initialModel : DeckModel
+initialModel =
     { deck = Deck.emptyDeck
     }
 
@@ -28,7 +28,7 @@ initialDeck =
 
 -- UPDATE
 
-update : DeckMsg -> Model -> ( Model, Cmd DeckMsg )
+update : DeckMsg -> DeckModel -> ( DeckModel, Cmd DeckMsg )
 update message model =
     let
         deck = model.deck
@@ -101,14 +101,14 @@ update message model =
                     setUpdated updatedDeck model
 
 
-setUpdated : Deck.Deck -> Model -> ( Model, Cmd DeckMsg )
+setUpdated : Deck.Deck -> DeckModel -> ( DeckModel, Cmd DeckMsg )
 setUpdated deck model =
     ( { model | deck = deck }, Cmd.none )
 
 
 -- VIEW 
 
-page : Model -> Html AppMsg
+page : DeckModel -> Html AppMsg
 page model =
     let
         deck = model.deck
@@ -171,7 +171,7 @@ stringToOption s =
 
 -- DATA TRANSFORM
 
-newDeck : Model -> Request.NavRequest
+newDeck : DeckModel -> Request.NavRequest
 newDeck model =
   let 
     deck = model.deck
