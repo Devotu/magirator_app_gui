@@ -5,6 +5,9 @@ import Json.Decode as JDC exposing (Decoder)
 import Phoenix.Socket as Socket exposing (AbnormalClose)
 import Request exposing (..)
 
+import Player
+
+
 type AppMsg
     = UrlChange Navigation.Location 
     | NewMsg JDC.Value | DataUpdate JDC.Value 
@@ -12,8 +15,7 @@ type AppMsg
     | SocketConnected | SocketDenied AbnormalClose
     | ChannelAppJoin | ChannelAppJoined JDC.Value | ChannelAppJoinError JDC.Value
     | Navigate String
-    | Post Request
-    | PostAndNavigate NavRequest
+    | Post Request | PostAndNavigate NavRequest | InitAndNavigate InitNavRequest
     | NewDeckMsg DeckMsg
     | RegisterMsg RegisterMsg
 
@@ -27,3 +29,4 @@ type DeckMsg
 type RegisterMsg
     = Comment String
     | PlayerSearchName String
+    | AddPlayer Player.Player

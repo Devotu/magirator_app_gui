@@ -13,3 +13,9 @@ type alias NavRequest =
     ,path : String
     ,reset : String
     }
+
+type alias InitNavRequest =
+    { target : String
+    ,path : String
+    ,id : Int
+    }

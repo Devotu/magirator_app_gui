@@ -24,6 +24,19 @@ type alias Model =
     }
 
 
+initTargetSubmodel : String -> Model -> Int -> Model
+initTargetSubmodel target model id =
+    case target of
+        "addregister" ->
+            let
+                initiatedRegisterGameModel = RegisterGameView.initiateModel id
+            in
+                { model | gameRegisterModel = initiatedRegisterGameModel }
+    
+        _ ->
+            model
+
+
 resetTargetInput : String -> Model -> Model
 resetTargetInput target model =
     case target of

@@ -65,7 +65,7 @@ update msg model =
 
         
         Navigate page ->
-            { model | channelStatus = ConnectionStatus.Connected } ! [ newUrl("/#/" ++ page) ]
+            { model | status = "navigating" } ! [ newUrl("/#/" ++ page) ]
 
 
         PostAndNavigate request ->
@@ -80,6 +80,14 @@ update msg model =
                 { resetModel | status = "posting and navigating" } ! [ Phoenix.push model.socketUrl push, newUrl("/#/" ++ request.path) ]
 
 
+        InitAndNavigate request ->
+            let                 
+                initiatedModel = Model.initTargetSubmodel request.target model request.id
+                        
+            in
+                { initiatedModel | status = "posting and navigating" } ! [ newUrl("/#/" ++ request.path ) ]
+
+
         NewDeckMsg subMsg ->
             let
                 ( updatedNewDeck, deckCmd ) =
@@ -90,10 +98,10 @@ update msg model =
 
         RegisterMsg subMsg ->
             let
-                ( updatedRegisterList, registerCmd ) =
+                ( updatedRegisterModel, registerCmd ) =
                     RegisterGameView.update subMsg model.gameRegisterModel
             in
-                ( { model | gameRegisterModel = updatedRegisterList } , Cmd.none )
+                ( { model | gameRegisterModel = updatedRegisterModel } , Cmd.none )
 
             
         DataUpdate payload -> 
